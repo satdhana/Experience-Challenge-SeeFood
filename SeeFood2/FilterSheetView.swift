@@ -2,8 +2,21 @@ import SwiftUI
 
 struct FilterSheetView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var internalSelectedCategory: String? // Gunakan @State
-    @State private var internalSelectedPriceRange: String? // Gunakan @State
+    @Binding var selectedCategory: String?
+    @Binding var selectedPriceRange: String?
+    @Binding var selectedLocation: String?
+    @State private var internalSelectedCategory: String?
+    @State private var internalSelectedPriceRange: String?
+    @State private var internalSelectedLocation: String?
+
+    init(selectedCategory: Binding<String?>, selectedPriceRange: Binding<String?>, selectedLocation: Binding<String?>) {
+        self._selectedCategory = selectedCategory
+        self._selectedPriceRange = selectedPriceRange
+        self._selectedLocation = selectedLocation
+        _internalSelectedCategory = State(initialValue: selectedCategory.wrappedValue)
+        _internalSelectedPriceRange = State(initialValue: selectedPriceRange.wrappedValue)
+        _internalSelectedLocation = State(initialValue: selectedLocation.wrappedValue)
+    }
 
     var body: some View {
         NavigationView {
@@ -16,7 +29,6 @@ struct FilterSheetView: View {
 
                 Divider()
 
-                // Location Filters
                 Text("Lokasi")
                     .font(.headline)
                     .padding(.top)
@@ -24,16 +36,18 @@ struct FilterSheetView: View {
 
                 ScrollView(.horizontal) {
                     HStack {
-                        FilterButton(title: "All", isSelected: internalSelectedCategory == "All") // Gunakan state internal
-                            .onTapGesture { internalSelectedCategory = "All" }
-                        FilterButton(title: "GOP 9", isSelected: internalSelectedCategory == "GOP 9")
-                            .onTapGesture { internalSelectedCategory = "GOP 9" }
-                        // ... tombol lokasi lainnya ...
+                        FilterButton(title: "All", isSelected: internalSelectedLocation == "All")
+                            .onTapGesture { internalSelectedLocation = "All" }
+                        FilterButton(title: "GOP 9", isSelected: internalSelectedLocation == "GOP 9")
+                            .onTapGesture { internalSelectedLocation = "GOP 9" }
+                        FilterButton(title: "GOP 6", isSelected: internalSelectedLocation == "GOP 6")
+                            .onTapGesture { internalSelectedLocation = "GOP 6" }
+                        FilterButton(title: "Traveloka Campus", isSelected: internalSelectedLocation == "Traveloka Campus")
+                            .onTapGesture { internalSelectedLocation = "Traveloka Campus" }
                     }
                     .padding(.horizontal)
                 }
 
-                // Price Range Filters
                 Text("Opsi Harga")
                     .font(.headline)
                     .padding(.top)
@@ -41,16 +55,16 @@ struct FilterSheetView: View {
 
                 ScrollView(.horizontal) {
                     HStack {
-                        FilterButton(title: "Under 20K", isSelected: internalSelectedPriceRange == "Under 20K") // Gunakan state internal
-                            .onTapGesture { internalSelectedPriceRange = "Under 20K" }
-                        FilterButton(title: "Under 50K", isSelected: internalSelectedPriceRange == "Under 50K")
-                            .onTapGesture { internalSelectedPriceRange = "Under 50K" }
-                        // ... tombol harga lainnya ...
+                        FilterButton(title: "Di Bawah 20K", isSelected: internalSelectedPriceRange == "Di Bawah 20K")
+                            .onTapGesture { internalSelectedPriceRange = "Di Bawah 20K" }
+                        FilterButton(title: "Di Bawah 50K", isSelected: internalSelectedPriceRange == "Di Bawah 50K")
+                            .onTapGesture { internalSelectedPriceRange = "Di Bawah 50K" }
+                        FilterButton(title: "Di Bawah 100K", isSelected: internalSelectedPriceRange == "Di Bawah 100K")
+                            .onTapGesture { internalSelectedPriceRange = "Di Bawah 100K" }
                     }
                     .padding(.horizontal)
                 }
 
-                // Operational Hour Filters
                 Text("Jam Operasional")
                     .font(.headline)
                     .padding(.top)
@@ -58,8 +72,9 @@ struct FilterSheetView: View {
 
                 ScrollView(.horizontal) {
                     HStack {
-                        FilterButton(title: "24 Hours", isSelected: false) // Contoh tanpa state
-                        // ... tombol jam lainnya ...
+                        FilterButton(title: "24 Jam", isSelected: false)
+                        FilterButton(title: "Dari 9 sampai 5", isSelected: false)
+                        FilterButton(title: "Dari 10 sampai 11", isSelected: false)
                     }
                     .padding(.horizontal)
                 }
@@ -67,12 +82,13 @@ struct FilterSheetView: View {
                 Spacer()
 
                 Button {
-                    print("See the Results tapped with category: \(internalSelectedCategory ?? "None"), price: \(internalSelectedPriceRange ?? "None")")
-                    dismiss() // Close the sheet
-                    // Di sini Anda bisa mengirimkan nilai filter internal ke ContentView jika diperlukan
+                    selectedCategory = internalSelectedCategory
+                    selectedPriceRange = internalSelectedPriceRange
+                    selectedLocation = internalSelectedLocation
+                    dismiss()
                 } label: {
                     HStack {
-                        Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                        Image(systemName: "line.3.horizontal.decrease.circle")
                         Text("Lihat Hasil")
                     }
                     .frame(maxWidth: .infinity)
@@ -88,16 +104,17 @@ struct FilterSheetView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Reset") {
-                        internalSelectedCategory = nil // Reset state internal
-                        internalSelectedPriceRange = nil // Reset state internal
-                        print("Reset filters")
+                        internalSelectedCategory = nil
+                        internalSelectedPriceRange = nil
+                        internalSelectedLocation = nil
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Apply") {
-                        print("Apply filters with category: \(internalSelectedCategory ?? "None"), price: \(internalSelectedPriceRange ?? "None")")
-                        dismiss() // Close the sheet
-                        // Di sini Anda bisa mengirimkan nilai filter internal ke ContentView jika diperlukan
+                        selectedCategory = internalSelectedCategory
+                        selectedPriceRange = internalSelectedPriceRange
+                        selectedLocation = internalSelectedLocation
+                        dismiss()
                     }
                 }
             }
@@ -121,5 +138,13 @@ struct FilterButton: View {
 }
 
 #Preview {
-    FilterSheetView() // Tidak perlu binding di preview karena menggunakan @State
+    @State var previewSelectedCategory: String? = nil
+    @State var previewSelectedPriceRange: String? = nil
+    @State var previewSelectedLocation: String? = nil
+
+    return FilterSheetView(
+        selectedCategory: $previewSelectedCategory,
+        selectedPriceRange: $previewSelectedPriceRange,
+        selectedLocation: $previewSelectedLocation
+    )
 }

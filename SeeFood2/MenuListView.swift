@@ -1,8 +1,15 @@
 import SwiftUI
+import MapKit
 
 struct MenuList: View {
     let menuItems: [MenuItem]
     let categoryTitle: String
+
+//    @State private var showNavigationButton = false
+    @State private var navigateToMap = false
+    
+    @Binding var showNavigationButton: Bool // Binding dari ContentView
+    @Binding var selectedMenuItem: MenuItem?
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -29,24 +36,42 @@ struct MenuList: View {
                                 Text(item.price)
                                     .font(.subheadline)
                                     .foregroundColor(.orange)
+                                if let location = item.location {
+                                    Text("Lokasi: \(location)")
+                                        .font(.caption2)
+                                        .foregroundColor(.secondary)
+                                }
                             }
                             Spacer()
                         }
                         .padding(.horizontal)
+                        .onTapGesture {
+                                    withAnimation(.easeInOut(duration: 0.3)) {
+                                        showNavigationButton = true
+                                        selectedMenuItem = item // Atau onMenuItemTap(item) jika menggunakan callback
+                                    }
+                                }
                     }
                 }
                 .padding(.vertical)
             }
+
+            
         }
         .padding(.top)
     }
 }
 
+
 #Preview {
-    let sampleMenuItems = [
-        MenuItem(name: "Nasi Uduk", imageName: "nasi_uduk", description: "Nasi gurih dengan...", price: "Rp 15.000", category: "Makanan Berat"),
-        MenuItem(name: "Sate Ayam", imageName: "sate_ayam", description: "Sate ayam lezat...", price: "Rp 25.000", category: "Makanan Berat")
-        // Tambahkan item menu lainnya sesuai kebutuhan
-    ]
-    return MenuList(menuItems: sampleMenuItems, categoryTitle: "Makanan Berat")
+    let sampleCategory = "Makanan Berat"
+    let sampleMenuItems = MenuItem.all.filter { $0.category == sampleCategory }
+    @State var showButton = false // Membuat state untuk binding
+    @State var selectedItem: MenuItem? // Membuat state untuk binding
+    return MenuList(
+        menuItems: sampleMenuItems,
+        categoryTitle: sampleCategory,
+        showNavigationButton: $showButton,
+        selectedMenuItem: $selectedItem
+    )
 }

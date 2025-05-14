@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct MapViewWithSwiftUI: View {
+struct NavigationMapView: View {
     @State private var position: MapCameraPosition = .automatic
     @State private var arrivedButtonVisible: Bool = false
     @StateObject private var locationManager = LocationManager()
@@ -113,8 +113,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 }
 
-struct MapViewWithSwiftUI_Previews: PreviewProvider {
+struct NavigationMapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapViewWithSwiftUI()
+        NavigationMapView()
     }
 }
