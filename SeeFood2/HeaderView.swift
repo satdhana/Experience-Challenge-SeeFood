@@ -34,7 +34,7 @@ struct HeaderView: View {
                                     Text("Lokasi Sekarang")
                                         .font(.caption)
                                         .foregroundColor(.black.opacity(0.8))
-                                    Text(locationManager.userAddress)
+                                    Text("Jl. Raya Seribu Angka Raya No. 123, BSD, ... ")
                                         .font(.subheadline)
                                         .foregroundColor(.black)
                                 }

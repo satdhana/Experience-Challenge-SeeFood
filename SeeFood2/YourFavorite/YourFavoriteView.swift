@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct YourFavoriteView: View {
+    @Environment(\.dismiss) var dismiss
+    
     let favoriteRecommendations: [Recommendation] = [
         Recommendation(imageName: "MB-1", title: "Panekuk", location: "The Breeze | 500m", description: "Panekuk dengan taburan kacang dan krim susu", price: "Rp 38.000,-"),
         Recommendation(imageName: "MB-2", title: "Smoothies", location: "GOP 9 | 50m", description: "Campuran buah yang dihaluskan dengan taburan buah potong", price: "Rp 37.000,-"),
@@ -23,9 +25,13 @@ struct YourFavoriteView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     // Header Content
                     HStack {
-                        Image(systemName: "chevron.left")
-                            .font(.title2)
-                            .foregroundColor(.white)
+                        Button {
+                            dismiss() 
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                        }
                         Spacer()
                         VStack(alignment: .center) {
                             Text("Favorit Kamu")
@@ -59,6 +65,7 @@ struct YourFavoriteView: View {
                 .padding(.vertical)
             }
         }
+        .navigationBarHidden(true)
         .edgesIgnoringSafeArea(.top)
     }
 }

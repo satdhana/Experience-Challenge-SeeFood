@@ -7,7 +7,7 @@ struct MenuItem: Identifiable {
     let description: String
     let price: String
     let category: String
-    let location: String? // Properti lokasi ditambahkan
+    let location: String? 
 
     var priceValue: Int? {
         return price.replacingOccurrences(of: "Rp ", with: "").replacingOccurrences(of: ".-", with: "").replacingOccurrences(of: ".", with: "").toInt()

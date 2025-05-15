@@ -53,17 +53,19 @@ struct NearestHereCarouselView: View {
                     .font(.title3)
                     .fontWeight(.bold)
                 Spacer()
+                NavigationLink(destination: NearestView()){
+                    Text("Lihat Semua")
+                        .font(.caption)
+                        .foregroundColor(Color(.orange))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(Color(.white))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color(.orange), lineWidth: 1)
+                        )
+                }
                 
-                Text("Lihat Semua")
-                    .font(.caption)
-                    .foregroundColor(Color(.orange))
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .background(Color(.white))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color(.orange), lineWidth: 1)
-                    )
             }
             .padding(.horizontal, 28)
             

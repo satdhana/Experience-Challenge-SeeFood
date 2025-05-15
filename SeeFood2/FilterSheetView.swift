@@ -5,18 +5,6 @@ struct FilterSheetView: View {
     @Binding var selectedCategory: String?
     @Binding var selectedPriceRange: String?
     @Binding var selectedLocation: String?
-    @State private var internalSelectedCategory: String?
-    @State private var internalSelectedPriceRange: String?
-    @State private var internalSelectedLocation: String?
-
-    init(selectedCategory: Binding<String?>, selectedPriceRange: Binding<String?>, selectedLocation: Binding<String?>) {
-        self._selectedCategory = selectedCategory
-        self._selectedPriceRange = selectedPriceRange
-        self._selectedLocation = selectedLocation
-        _internalSelectedCategory = State(initialValue: selectedCategory.wrappedValue)
-        _internalSelectedPriceRange = State(initialValue: selectedPriceRange.wrappedValue)
-        _internalSelectedLocation = State(initialValue: selectedLocation.wrappedValue)
-    }
 
     var body: some View {
         NavigationView {
@@ -36,14 +24,14 @@ struct FilterSheetView: View {
 
                 ScrollView(.horizontal) {
                     HStack {
-                        FilterButton(title: "All", isSelected: internalSelectedLocation == "All")
-                            .onTapGesture { internalSelectedLocation = "All" }
-                        FilterButton(title: "GOP 9", isSelected: internalSelectedLocation == "GOP 9")
-                            .onTapGesture { internalSelectedLocation = "GOP 9" }
-                        FilterButton(title: "GOP 6", isSelected: internalSelectedLocation == "GOP 6")
-                            .onTapGesture { internalSelectedLocation = "GOP 6" }
-                        FilterButton(title: "Traveloka Campus", isSelected: internalSelectedLocation == "Traveloka Campus")
-                            .onTapGesture { internalSelectedLocation = "Traveloka Campus" }
+                        FilterButton(title: "All", isSelected: selectedLocation == "All")
+                            .onTapGesture { selectedLocation = "All" }
+                        FilterButton(title: "GOP 9", isSelected: selectedLocation == "GOP 9")
+                            .onTapGesture { selectedLocation = "GOP 9" }
+                        FilterButton(title: "GOP 6", isSelected: selectedLocation == "GOP 6")
+                            .onTapGesture { selectedLocation = "GOP 6" }
+                        FilterButton(title: "Traveloka Campus", isSelected: selectedLocation == "Traveloka Campus")
+                            .onTapGesture { selectedLocation = "Traveloka Campus" }
                     }
                     .padding(.horizontal)
                 }
@@ -55,12 +43,12 @@ struct FilterSheetView: View {
 
                 ScrollView(.horizontal) {
                     HStack {
-                        FilterButton(title: "Di Bawah 20K", isSelected: internalSelectedPriceRange == "Di Bawah 20K")
-                            .onTapGesture { internalSelectedPriceRange = "Di Bawah 20K" }
-                        FilterButton(title: "Di Bawah 50K", isSelected: internalSelectedPriceRange == "Di Bawah 50K")
-                            .onTapGesture { internalSelectedPriceRange = "Di Bawah 50K" }
-                        FilterButton(title: "Di Bawah 100K", isSelected: internalSelectedPriceRange == "Di Bawah 100K")
-                            .onTapGesture { internalSelectedPriceRange = "Di Bawah 100K" }
+                        FilterButton(title: "Di Bawah 20K", isSelected: selectedPriceRange == "Di Bawah 20K")
+                            .onTapGesture { selectedPriceRange = "Di Bawah 20K" }
+                        FilterButton(title: "Di Bawah 50K", isSelected: selectedPriceRange == "Di Bawah 50K")
+                            .onTapGesture { selectedPriceRange = "Di Bawah 50K" }
+                        FilterButton(title: "Di Bawah 100K", isSelected: selectedPriceRange == "Di Bawah 100K")
+                            .onTapGesture { selectedPriceRange = "Di Bawah 100K" }
                     }
                     .padding(.horizontal)
                 }
@@ -72,9 +60,9 @@ struct FilterSheetView: View {
 
                 ScrollView(.horizontal) {
                     HStack {
-                        FilterButton(title: "24 Jam", isSelected: false)
-                        FilterButton(title: "Dari 9 sampai 5", isSelected: false)
-                        FilterButton(title: "Dari 10 sampai 11", isSelected: false)
+                        FilterButton(title: "24 Jam", isSelected: false) // Anda perlu binding untuk ini jika ingin berfungsi
+                        FilterButton(title: "Dari 9 sampai 5", isSelected: false) // Anda perlu binding untuk ini jika ingin berfungsi
+                        FilterButton(title: "Dari 10 sampai 11", isSelected: false) // Anda perlu binding untuk ini jika ingin berfungsi
                     }
                     .padding(.horizontal)
                 }
@@ -82,10 +70,7 @@ struct FilterSheetView: View {
                 Spacer()
 
                 Button {
-                    selectedCategory = internalSelectedCategory
-                    selectedPriceRange = internalSelectedPriceRange
-                    selectedLocation = internalSelectedLocation
-                    dismiss()
+                    dismiss() // Tutup sheet, perubahan sudah langsung diterapkan
                 } label: {
                     HStack {
                         Image(systemName: "line.3.horizontal.decrease.circle")
@@ -104,17 +89,14 @@ struct FilterSheetView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Reset") {
-                        internalSelectedCategory = nil
-                        internalSelectedPriceRange = nil
-                        internalSelectedLocation = nil
+                        selectedCategory = nil
+                        selectedPriceRange = nil
+                        selectedLocation = nil
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Apply") {
-                        selectedCategory = internalSelectedCategory
-                        selectedPriceRange = internalSelectedPriceRange
-                        selectedLocation = internalSelectedLocation
-                        dismiss()
+                        dismiss() // Tutup sheet
                     }
                 }
             }

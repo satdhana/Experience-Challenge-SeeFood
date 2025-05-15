@@ -25,6 +25,30 @@ struct ContentView: View {
     var filteredAndCategorizedMenu: [MenuItem] {
         var filtered = MenuItem.all
 
+//        if !searchText.isEmpty {
+//                let searchTextLowercased = searchText.localizedLowercase
+//                let synonyms: [String: [String]] = [
+//                    "ayam": ["Chicken"],
+//                    "kopi": ["Coffee"]
+//                    // Tambahkan daftar sinonim lainnya di sini
+//                ]
+//
+//                var searchTerms = [searchTextLowercased]
+//                if let relatedSynonyms = synonyms[searchTextLowercased] {
+//                    searchTerms.append(contentsOf: relatedSynonyms)
+//                }
+//
+//                filtered = filtered.filter { item in
+//                    let nameLowercased = item.name.localizedLowercase
+//                    let descriptionLowercased = item.description.localizedLowercase
+//
+//                    return searchTerms.contains(where: { term in
+//                        nameLowercased.localizedCaseInsensitiveContains(term) ||
+//                        descriptionLowercased.localizedCaseInsensitiveContains(term)
+//                    })
+//                }
+//            }
+        
         if let category = selectedCategory, category != "Semua Menu" {
             filtered = filtered.filter { $0.category == category }
         }

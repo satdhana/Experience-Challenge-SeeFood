@@ -74,42 +74,48 @@ struct YourFavoritesView: View {
     @Binding var showNavigationButton: Bool
 
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack(alignment: .bottom) {
-                Text("Favorit Kamu")
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .padding(.top)
-                Spacer()
-                Text("Lihat Semua")
-                    .font(.caption)
-                    .foregroundColor(Color(.orange))
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .background(Color(.white))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color(.orange), lineWidth: 1)
+        NavigationStack{
+            VStack(alignment: .leading) {
+                HStack(alignment: .bottom) {
+                    Text("Favorit Kamu")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding(.top)
+                    Spacer()
+                    NavigationLink(destination: YourFavoriteView()) {
+                        Text("Lihat Semua")
+                            .font(.caption)
+                            .foregroundColor(Color(.orange))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(Color(.white))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color(.orange), lineWidth: 1)
+                            )
+                    }
+                    
+                }
+
+                ForEach(favoriteItems) { item in
+                    YourFavoriteItemView(
+                        imageName: item.imageName,
+                        title: item.title,
+                        location: item.location,
+                        description: item.description,
+                        price: item.price
                     )
-            }
+                    .padding(.bottom, 10) // Berikan jarak antar item
+                }
+                .onAppear {
+                                    showNavigationButton = true
+                                }
 
-            ForEach(favoriteItems) { item in
-                YourFavoriteItemView(
-                    imageName: item.imageName,
-                    title: item.title,
-                    location: item.location,
-                    description: item.description,
-                    price: item.price
-                )
-                .padding(.bottom, 10) // Berikan jarak antar item
+                Spacer()
             }
-            .onAppear {
-                                showNavigationButton = true
-                            }
-
-            Spacer()
+            .padding(.horizontal,28)
         }
-        .padding(.horizontal,28)
+        
     }
 }
 
