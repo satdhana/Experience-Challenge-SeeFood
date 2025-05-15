@@ -20,8 +20,7 @@ struct NearestHereListItemView: View {
             Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 80, height: 80)
-                .cornerRadius(8)
+                .frame(width: 120, height: 120)
 
             VStack(alignment: .leading, spacing: 6) {
                 Text(title)
@@ -67,7 +66,6 @@ struct NearestHereListItemView: View {
             }
             Spacer()
         }
-        .padding()
         .background(Color.white)
         .cornerRadius(10)
         .shadow(color: Color.black.opacity(0.05), radius: 3, x: 0, y: 2)

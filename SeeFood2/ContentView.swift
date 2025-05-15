@@ -91,7 +91,7 @@ struct ContentView: View {
                     showNavigationButton: $showNavigationButton,
                     selectedMenuItem: $selectedMenuItem
                 )
-                .padding(.top, 20)
+                .padding(.top, -25)
                 .padding(.top, 20)
             } else {
                 VStack {
@@ -201,6 +201,7 @@ struct ContentView: View {
                     }
                     .zIndex(1)
                 }
+                
             }
             .navigationBarHidden(true)
             .ignoresSafeArea(.keyboard, edges: .bottom)

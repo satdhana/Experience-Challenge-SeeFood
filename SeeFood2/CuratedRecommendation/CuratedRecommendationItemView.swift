@@ -16,21 +16,20 @@ struct CuratedRecommendationItemView: View {
 
     var body: some View {
         HStack(spacing: 12) {
+            // Bagian Gambar
             Image(imageName)
                 .resizable()
-                .scaledToFill()
-                .frame(width: 120, height: 120)
+                .scaledToFit()
+                .frame(width: 120) // Sesuaikan lebar gambar
                 .clipped()
-                .cornerRadius(8)
 
+            // Bagian Informasi Teks
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(title)
                             .font(.headline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.black)
-
+                            .fontWeight(.bold)
                         HStack(spacing: 4) {
                             Image(systemName: "mappin.fill")
                                 .font(.caption2)
@@ -42,23 +41,23 @@ struct CuratedRecommendationItemView: View {
                     }
                     Spacer()
                     Image(systemName: "star")
-                        .foregroundColor(Color(.systemYellow).opacity(0.7))
+                        .foregroundColor(.gray.opacity(0.7))
                 }
-
                 Text(description)
                     .font(.caption)
                     .foregroundColor(.gray)
-
                 Text(price)
                     .font(.subheadline)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.blue) // Atau warna lain untuk harga
             }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
         }
-        .padding(12)
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(color: Color.black.opacity(0.05), radius: 3, x: 0, y: 2)
-        .padding(.horizontal)
+        .frame(width: .infinity) // Sesuaikan lebar keseluruhan item
+        .background(Color.white) // Berikan background putih
+        .cornerRadius(10) // Tambahkan corner radius
+        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+        .padding(.horizontal, 16) // Padding untuk item terakhir
     }
 }
 

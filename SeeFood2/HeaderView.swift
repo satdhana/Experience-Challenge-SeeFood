@@ -6,7 +6,8 @@ struct HeaderView: View {
     @FocusState var searchFieldFocused: Bool
     @Binding var recentSearches: [String]
     @Binding var isFilterSheetPresented: Bool
-
+    @StateObject var locationManager = LocationManagers()
+    
     func addRecentSearch(_ query: String) {
         if let index = recentSearches.firstIndex(of: query) {
             recentSearches.remove(at: index)
@@ -16,7 +17,7 @@ struct HeaderView: View {
             recentSearches.removeLast()
         }
     }
-
+    
     var body: some View {
         ZStack {
             Image("Background")
@@ -33,7 +34,7 @@ struct HeaderView: View {
                                     Text("Lokasi Sekarang")
                                         .font(.caption)
                                         .foregroundColor(.black.opacity(0.8))
-                                    Text("Jl. Pahlawan Seribu, Lengkong Karya, Kec...")
+                                    Text(locationManager.userAddress)
                                         .font(.subheadline)
                                         .foregroundColor(.black)
                                 }
@@ -45,7 +46,7 @@ struct HeaderView: View {
                             .cornerRadius(8)
                             .frame(maxWidth: .infinity)
                         }
-
+                        
                         HStack {
                             HStack {
                                 Image(systemName: "magnifyingglass")
@@ -70,34 +71,40 @@ struct HeaderView: View {
                             )
                             .frame(maxWidth: .infinity)
                             .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 4)
-
-                            Button {
-                                isFilterSheetPresented = true
-                                searchFieldFocused = false
-                            } label: {
-                                Image(systemName: "slider.horizontal.3")
-                                    .font(.title2)
-                                    .foregroundColor(.gray)
-                                    .padding(8)
+                            // Kondisi untuk menampilkan tombol filter
+                            if searchFieldFocused {
+                                Button {
+                                    isFilterSheetPresented = true
+                                } label: {
+                                    Image(systemName: "slider.horizontal.3")
+                                        .font(.title2)
+                                        .foregroundColor(.gray)
+                                        .padding(8)
+                                }
+                                .frame(width: 44, height: 44, alignment: .center)
+                                .background(Color(.white))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                                )
+                                .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 4)
                             }
-                            .frame(width: 44, height: 44, alignment: .center)
-                            .background(Color(.white))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-                            )
-                            .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 4)
+                            
+                            
                         }
                         .padding(.horizontal, 24)
-
+                        
                         Spacer()
                     }
-                    .padding(.top, 120)
+                        .padding(.top, 120)
                 )
         }
         .frame(height: 120)
         .ignoresSafeArea(.all)
         .padding(.bottom, -20)
+        .onAppear {
+                    locationManager.startUpdatingLocation()
+                }
     }
 }
 
@@ -107,12 +114,12 @@ struct HeaderView: View {
     @FocusState var previewSearchFieldFocused: Bool
     @State var previewRecentSearches: [String] = []
     @State var previewIsFilterSheetPresented = false // Tambahkan state untuk isFilterSheetPresented
-
+    
     return HeaderView(
         searchText: $previewSearchText,
         selectedCategory: $previewSelectedCategory,
         searchFieldFocused: _previewSearchFieldFocused,
         recentSearches: $previewRecentSearches,
-        isFilterSheetPresented: $previewIsFilterSheetPresented 
+        isFilterSheetPresented: $previewIsFilterSheetPresented
     )
 }

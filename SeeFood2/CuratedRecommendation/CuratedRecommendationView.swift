@@ -1,8 +1,12 @@
 import SwiftUI
 
 struct CuratedRecommendationsView: View {
-    @Environment(\.dismiss) var dismiss // 1. Dapatkan akses ke fungsi dismiss
-
+    @Environment(\.dismiss) var dismiss
+    @State private var selectedRecommendation: Recommendation?
+    @State private var showGoToRestaurantButton = false
+    @State private var isMapActive = false // State untuk binding ke ButtonNavView
+        @State private var internalShowNavigationButton = false
+    
     let recommendations: [Recommendation] = [
         Recommendation(imageName: "MB-1", title: "Panekuk", location: "The Breeze | 500m", description: "Panekuk dengan taburan kacang dan krim susu", price: "Rp 38.000,-"),
         Recommendation(imageName: "MB-2", title: "Smoothies", location: "GOP 9 | 50m", description: "Campuran buah yang dihaluskan dengan taburan buah potong", price: "Rp 37.000,-"),
@@ -60,13 +64,23 @@ struct CuratedRecommendationsView: View {
                             description: recommendation.description,
                             price: recommendation.price
                         )
+                        .onTapGesture {
+                                            selectedRecommendation = recommendation
+                                            showGoToRestaurantButton = true
+                                        }
                     }
                 }
                 .padding(.vertical)
             }
+            if showGoToRestaurantButton, let selectedRecommendation = selectedRecommendation {
+                            ButtonNavView(isMapActive: $isMapActive, showNavigationButton: $internalShowNavigationButton)
+                                .transition(.move(edge: .bottom))
+                        }
+            
         }
         .navigationBarHidden(true)
         .edgesIgnoringSafeArea(.top)
+        .animation(.easeInOut, value: showGoToRestaurantButton)
     }
 }
 

@@ -53,6 +53,7 @@ struct NearestHereCarouselView: View {
                     .font(.title3)
                     .fontWeight(.bold)
                 Spacer()
+                
                 Text("Lihat Semua")
                     .font(.caption)
                     .foregroundColor(Color(.orange))
