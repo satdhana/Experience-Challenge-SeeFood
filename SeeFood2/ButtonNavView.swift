@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ButtonNavView: View {
+    @Binding var isMapActive: Bool
+    @Binding var showNavigationButton: Bool
+
     var body: some View {
-        Button {
-            print("You've Arrived! Button Tapped")
-            // Handle arrival logic here
+        NavigationLink(isActive: $isMapActive) {
+            NavigationMapView()
         } label: {
             HStack {
                 Image(systemName: "location")
@@ -25,11 +27,16 @@ struct ButtonNavView: View {
             .padding()
             .background(Color.orange)
             .cornerRadius(10)
+            .padding()
+            .onTapGesture {
+                isMapActive = true
+                showNavigationButton = false // Sembunyikan tombol saat diklik
+            }
         }
-        .padding()
     }
 }
-
 #Preview {
-    ButtonNavView()
+    @State var isMapActive = false 
+    @State var showNavigationButton = true
+    return ButtonNavView(isMapActive: $isMapActive, showNavigationButton: $showNavigationButton)
 }

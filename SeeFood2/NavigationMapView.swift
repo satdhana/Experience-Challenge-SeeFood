@@ -9,9 +9,11 @@ import SwiftUI
 import MapKit
 
 struct NavigationMapView: View {
+    @Environment(\.dismiss) var dismiss
     @State private var position: MapCameraPosition = .automatic
     @State private var arrivedButtonVisible: Bool = false
     @StateObject private var locationManager = LocationManager()
+    @State private var shouldNavigateBack = false
     
     let locations = [
         Location(name: "Traveloka Campus", latitude: -6.302786900319068, longitude: 106.6515491053045),
@@ -62,26 +64,31 @@ struct NavigationMapView: View {
                 }
             }
             
-//            if arrivedButtonVisible {
-                Button {
-                    print("You've Arrived! Button Tapped")
-                    // Handle arrival logic here
-                } label: {
-                    HStack {
-                        Image(systemName: "checkmark.seal")
-                            .foregroundColor(.white)
-                            .fontWeight(.bold)
-                        Text("You've Arrived!")
-                            .foregroundColor(.white)
-                            .fontWeight(.bold)
+            VStack {
+                        NavigationLink(isActive: $shouldNavigateBack) {
+                            ContentView() 
+                        } label: {
+                            Button {
+                                print("You've Arrived! Button Tapped")
+                                shouldNavigateBack = true
+                            } label: {
+                                HStack {
+                                    Image(systemName: "checkmark.seal")
+                                        .foregroundColor(.white)
+                                        .fontWeight(.bold)
+                                    Text("You've Arrived!")
+                                        .foregroundColor(.white)
+                                        .fontWeight(.bold)
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                                    .padding()
+                                    .background(Color.orange)
+                                    .cornerRadius(10)
+                                }
+                                .padding()
+                        }
                     }
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding()
-                    .background(Color.orange)
-                    .cornerRadius(10)
-                }
-                .padding()
-//            }
+                    .navigationBarBackButtonHidden(true)
         }
     }
 }

@@ -7,12 +7,16 @@
 
 import SwiftUI
 
+
+
 struct YourFavoriteItemView: View {
     let imageName: String // Nama aset gambar
     let title: String
     let location: String
     let description: String
     let price: String
+    
+    
 
     var body: some View {
         HStack(spacing: 0) {
@@ -23,7 +27,6 @@ struct YourFavoriteItemView: View {
                 .frame(width: 120) // Sesuaikan lebar gambar
                 .clipped()
 
-            // Bagian Informasi Teks
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
@@ -40,8 +43,8 @@ struct YourFavoriteItemView: View {
                         }
                     }
                     Spacer()
-                    Image(systemName: "star")
-                        .foregroundColor(.gray.opacity(0.7))
+                    Image(systemName: "star.fill")
+                        .foregroundColor(.yellow.opacity(0.7))
                 }
                 Text(description)
                     .font(.caption)
@@ -67,6 +70,8 @@ struct YourFavoritesView: View {
         FavoriteItem(imageName: "MB-3", title: "Roti Isi", location: "GOP 6 | 300m", description: "Roti gandum dengan isian sayur, buah, daging, telur yang bergizi", price: "Rp 45.000,-"),
         // Tambahkan lebih banyak item favorit di sini
     ]
+    
+    @Binding var showNavigationButton: Bool
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -98,6 +103,9 @@ struct YourFavoritesView: View {
                 )
                 .padding(.bottom, 10) // Berikan jarak antar item
             }
+            .onAppear {
+                                showNavigationButton = true
+                            }
 
             Spacer()
         }
@@ -116,6 +124,6 @@ struct FavoriteItem: Identifiable {
 
 struct YourFavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        YourFavoritesView()
+        YourFavoritesView(showNavigationButton: .constant(true))
     }
 }
