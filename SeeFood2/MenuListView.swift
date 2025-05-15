@@ -30,17 +30,15 @@ struct MenuList: View {
                             VStack(alignment: .leading) {
                                 Text(item.name)
                                     .font(.headline)
-                                Text(item.description)
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
-                                Text(item.price)
-                                    .font(.subheadline)
-                                    .foregroundColor(.orange)
                                 if let location = item.location {
                                     Text("Lokasi: \(location)")
-                                        .font(.caption2)
+                                        .font(.subheadline)
                                         .foregroundColor(.secondary)
                                 }
+                                Text(item.price)
+                                    .font(.subheadline)
+                                    .foregroundColor(.blue)
+                                
                             }
                             Spacer()
                         }

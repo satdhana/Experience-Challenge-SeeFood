@@ -2,6 +2,9 @@ import SwiftUI
 
 struct YourFavoriteView: View {
     @Environment(\.dismiss) var dismiss
+    @Binding var showNavigationButton: Bool
+    @Binding var isMapActive: Bool
+    @State private var selectedFavoriteItem: Recommendation? = nil
     
     let favoriteRecommendations: [Recommendation] = [
         Recommendation(imageName: "MB-1", title: "Panekuk", location: "The Breeze | 500m", description: "Panekuk dengan taburan kacang dan krim susu", price: "Rp 38.000,-"),
@@ -21,12 +24,12 @@ struct YourFavoriteView: View {
                     .scaledToFill()
                     .frame(height: 110)
                     .ignoresSafeArea()
-
+                
                 VStack(alignment: .leading, spacing: 0) {
                     // Header Content
                     HStack {
                         Button {
-                            dismiss() 
+                            dismiss()
                         } label: {
                             Image(systemName: "chevron.left")
                                 .font(.title2)
@@ -43,7 +46,6 @@ struct YourFavoriteView: View {
                         Color.clear.frame(width: 24, height: 24)
                     }
                     .padding(.horizontal,24)
-                    .background(Color("OrangeBackground").opacity(0.8))
                 }
                 .padding(.top, 40)
             }
@@ -53,16 +55,24 @@ struct YourFavoriteView: View {
             ScrollView {
                 VStack(spacing: 16) {
                     ForEach(favoriteRecommendations) { recommendation in
-                        CuratedRecommendationItemView(
+                        FavoriteItemView(
                             imageName: recommendation.imageName,
                             title: recommendation.title,
                             location: recommendation.location,
                             description: recommendation.description,
                             price: recommendation.price
                         )
+                        .onTapGesture {
+                            selectedFavoriteItem = recommendation
+                            showNavigationButton = true
+                        }
                     }
                 }
                 .padding(.vertical)
+            }
+            if showNavigationButton {
+                ButtonNavView(isMapActive: $isMapActive, showNavigationButton: $showNavigationButton)
+                    .padding(.bottom)
             }
         }
         .navigationBarHidden(true)
@@ -74,6 +84,8 @@ struct YourFavoriteView: View {
 
 struct YourFavoriteView_Previews: PreviewProvider {
     static var previews: some View {
-        YourFavoriteView()
+        @State var isMapActive = false
+        @State var showNavButton = false 
+        return YourFavoriteView(showNavigationButton: $showNavButton, isMapActive: $isMapActive)
     }
 }

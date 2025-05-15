@@ -59,7 +59,7 @@ struct NearestHereCarouselView: View {
                         .foregroundColor(Color(.orange))
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
-                        .background(Color(.white))
+                        .background(Color(.white).cornerRadius(8))
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(Color(.orange), lineWidth: 1)

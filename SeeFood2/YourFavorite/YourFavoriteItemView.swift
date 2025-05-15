@@ -17,7 +17,7 @@ struct YourFavoriteItemView: View {
     let price: String
     
     
-
+    
     var body: some View {
         HStack(spacing: 0) {
             // Bagian Gambar
@@ -26,7 +26,7 @@ struct YourFavoriteItemView: View {
                 .scaledToFit()
                 .frame(width: 120) // Sesuaikan lebar gambar
                 .clipped()
-
+            
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
@@ -58,7 +58,7 @@ struct YourFavoriteItemView: View {
         }
         .frame(maxWidth: .infinity)
         .background(Color.white)
-        .cornerRadius(10) 
+        .cornerRadius(10)
         .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
     }
 }
@@ -72,7 +72,9 @@ struct YourFavoritesView: View {
     ]
     
     @Binding var showNavigationButton: Bool
-
+    @Binding var isMapActive: Bool
+    @State private var selectedFavoriteItem: FavoriteItem? = nil
+    
     var body: some View {
         NavigationStack{
             VStack(alignment: .leading) {
@@ -82,13 +84,13 @@ struct YourFavoritesView: View {
                         .fontWeight(.bold)
                         .padding(.top)
                     Spacer()
-                    NavigationLink(destination: YourFavoriteView()) {
+                    NavigationLink(destination: YourFavoriteView(showNavigationButton: $showNavigationButton, isMapActive: $isMapActive)) {
                         Text("Lihat Semua")
                             .font(.caption)
                             .foregroundColor(Color(.orange))
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
-                            .background(Color(.white))
+                            .background(Color(.white).cornerRadius(8))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color(.orange), lineWidth: 1)
@@ -96,7 +98,7 @@ struct YourFavoritesView: View {
                     }
                     
                 }
-
+                
                 ForEach(favoriteItems) { item in
                     YourFavoriteItemView(
                         imageName: item.imageName,
@@ -105,16 +107,20 @@ struct YourFavoritesView: View {
                         description: item.description,
                         price: item.price
                     )
-                    .padding(.bottom, 10) // Berikan jarak antar item
+                    .padding(.bottom, 10)
+                    .onTapGesture {
+                        selectedFavoriteItem = item
+                        showNavigationButton = true
+                    }
                 }
-                .onAppear {
-                                    showNavigationButton = true
-                                }
-
+                
+                
                 Spacer()
             }
             .padding(.horizontal,28)
         }
+        
+        
         
     }
 }
@@ -130,6 +136,8 @@ struct FavoriteItem: Identifiable {
 
 struct YourFavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        YourFavoritesView(showNavigationButton: .constant(true))
+        // Deklarasikan state property di sini
+        @State var isMapActive = false
+        return YourFavoritesView(showNavigationButton: .constant(true), isMapActive: $isMapActive)
     }
 }

@@ -6,7 +6,7 @@ struct RecommendationItemView: View {
     let location: String
     let description: String
     let price: String
-
+    
     var body: some View {
         HStack(spacing: 0) {
             // Bagian Gambar
@@ -15,7 +15,7 @@ struct RecommendationItemView: View {
                 .scaledToFit()
                 .frame(width: 120) // Sesuaikan lebar gambar
                 .clipped()
-
+            
             // Bagian Informasi Teks
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
@@ -63,7 +63,10 @@ struct RecommendationCarouselView: View {
         RecommendationItem(imageName: "MB-5", title: "Pizza", location: "GOP 9 | 50m", description: "Pizza dengan pilihan isian dari daging, sayur, dan keju", price: "Rp 35.000,-"),
         RecommendationItem(imageName: "MB-6", title: "Burger", location: "BSD | 1km", description: "Burger lezat dengan daging sapi premium", price: "Rp 45.000,-"),
     ]
-
+    
+    @Binding var showNavigationButton: Bool
+    @Binding var isMapActive: Bool
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -71,13 +74,13 @@ struct RecommendationCarouselView: View {
                     .font(.title3)
                     .fontWeight(.bold)
                 Spacer()
-                NavigationLink(destination: CuratedRecommendationsView()) { // Tambahkan NavigationLink di sini
+                NavigationLink(destination: CuratedRecommendationsView()) {
                     Text("Lihat Semua")
                         .font(.caption)
                         .foregroundColor(Color(.orange))
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
-                        .background(Color(.white))
+                        .background(Color(.white).cornerRadius(8))
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(Color(.orange), lineWidth: 1)
@@ -86,7 +89,7 @@ struct RecommendationCarouselView: View {
             }
             .padding(.horizontal, 28)
             .padding(.top, 12)
-
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 6) {
                     ForEach(recommendations) { item in
@@ -97,6 +100,9 @@ struct RecommendationCarouselView: View {
                             description: item.description,
                             price: item.price
                         )
+                        .onTapGesture {
+                            showNavigationButton = true
+                        }
                     }
                 }
                 .padding(.horizontal)
@@ -119,7 +125,10 @@ struct RecommendationItem: Identifiable {
 
 struct CarouselView_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendationCarouselView()
+        @State var isMapActive = false
+        @State var showNavButton = false
+        
+        return RecommendationCarouselView(showNavigationButton: $showNavButton, isMapActive: $isMapActive)
             .previewLayout(.sizeThatFits)
     }
 }

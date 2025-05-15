@@ -16,7 +16,7 @@ struct MenuCategoryItem: View {
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(isSelected ? Color.orange : Color.gray.opacity(0.2), lineWidth: 1) // Warna border berubah
                 )
-                .background(Color.white)
+                .background(Color(.white).cornerRadius(8))
                 .shadow(color: Color.black.opacity(0.1), radius: 6, x: 2, y: 4)
             
             Text(title)

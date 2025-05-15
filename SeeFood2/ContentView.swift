@@ -17,6 +17,9 @@ struct ContentView: View {
     @State private var showNavigationButton = false
     @State private var selectedMenuItem: MenuItem?
     @State private var isMapActive = false
+    @State private var showNavigationButtonInternal = false
+    @State private var isMapActiveInternal = false
+    
 
     // MARK: - Computed Properties
 
@@ -24,30 +27,6 @@ struct ContentView: View {
 
     var filteredAndCategorizedMenu: [MenuItem] {
         var filtered = MenuItem.all
-
-//        if !searchText.isEmpty {
-//                let searchTextLowercased = searchText.localizedLowercase
-//                let synonyms: [String: [String]] = [
-//                    "ayam": ["Chicken"],
-//                    "kopi": ["Coffee"]
-//                    // Tambahkan daftar sinonim lainnya di sini
-//                ]
-//
-//                var searchTerms = [searchTextLowercased]
-//                if let relatedSynonyms = synonyms[searchTextLowercased] {
-//                    searchTerms.append(contentsOf: relatedSynonyms)
-//                }
-//
-//                filtered = filtered.filter { item in
-//                    let nameLowercased = item.name.localizedLowercase
-//                    let descriptionLowercased = item.description.localizedLowercase
-//
-//                    return searchTerms.contains(where: { term in
-//                        nameLowercased.localizedCaseInsensitiveContains(term) ||
-//                        descriptionLowercased.localizedCaseInsensitiveContains(term)
-//                    })
-//                }
-//            }
         
         if let category = selectedCategory, category != "Semua Menu" {
             filtered = filtered.filter { $0.category == category }
@@ -119,11 +98,11 @@ struct ContentView: View {
                 .padding(.top, 20)
             } else {
                 VStack {
-                    RecommendationCarouselView()
+                    RecommendationCarouselView(showNavigationButton: $showNavigationButton, isMapActive: $isMapActive)
                         .padding(.top, 20)
                     NearestHereCarouselView()
                         .padding(.top, 20)
-                    YourFavoritesView(showNavigationButton: .constant(true))
+                    YourFavoritesView(showNavigationButton: $showNavigationButton, isMapActive: $isMapActive)
                 }
             }
         }

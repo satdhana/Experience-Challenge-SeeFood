@@ -37,6 +37,7 @@ struct HeaderView: View {
                                     Text("Jl. Raya Seribu Angka Raya No. 123, BSD, ... ")
                                         .font(.subheadline)
                                         .foregroundColor(.black)
+                                        .fontWeight(.medium)
                                 }
                                 .padding(.leading, 4)
                             }
@@ -82,7 +83,7 @@ struct HeaderView: View {
                                         .padding(8)
                                 }
                                 .frame(width: 44, height: 44, alignment: .center)
-                                .background(Color(.white))
+                                .background(Color(.white).cornerRadius(8))
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 8)
                                         .stroke(Color.gray.opacity(0.3), lineWidth: 1)
