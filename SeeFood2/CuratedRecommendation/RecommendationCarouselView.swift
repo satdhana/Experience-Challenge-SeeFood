@@ -13,7 +13,7 @@ struct RecommendationItemView: View {
             Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 120) // Sesuaikan lebar gambar
+                .frame(width: 130) // Sesuaikan lebar gambar
                 .clipped()
             
             // Bagian Informasi Teks
@@ -36,6 +36,9 @@ struct RecommendationItemView: View {
                     Image(systemName: "star")
                         .foregroundColor(.gray.opacity(0.7))
                 }
+                
+                Spacer()
+                
                 Text(description)
                     .font(.caption)
                     .foregroundColor(.gray)

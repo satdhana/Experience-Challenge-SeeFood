@@ -24,12 +24,13 @@ struct MenuList: View {
                             Image(item.imageName)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 80, height: 80)
-                                .cornerRadius(8)
+                                .frame(width: .infinity, height: 130)
+//                                .cornerRadius(8)
 
                             VStack(alignment: .leading) {
                                 Text(item.name)
                                     .font(.headline)
+                                    .padding(.bottom, 8)
                                 if let location = item.location {
                                     Text("Lokasi: \(location)")
                                         .font(.subheadline)
@@ -40,9 +41,11 @@ struct MenuList: View {
                                     .foregroundColor(.blue)
                                 
                             }
+                            .padding(.leading, 6)
                             Spacer()
                         }
-                        .padding(.horizontal)
+                        .background(Color.white)
+                        .cornerRadius(8)
                         .onTapGesture {
                                     withAnimation(.easeInOut(duration: 0.3)) {
                                         showNavigationButton = true
@@ -50,6 +53,8 @@ struct MenuList: View {
                                     }
                                 }
                     }
+                    .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+                    .padding(.horizontal)
                 }
                 .padding(.vertical)
             }

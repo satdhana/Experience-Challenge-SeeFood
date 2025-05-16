@@ -5,6 +5,7 @@ struct FilterSheetView: View {
     @Binding var selectedCategory: String?
     @Binding var selectedPriceRange: String?
     @Binding var selectedLocation: String?
+    @Binding var isFilterActive: Bool
 
     var body: some View {
         NavigationView {
@@ -70,7 +71,8 @@ struct FilterSheetView: View {
                 Spacer()
 
                 Button {
-                    dismiss() // Tutup sheet, perubahan sudah langsung diterapkan
+                    isFilterActive = selectedCategory != nil || selectedPriceRange != nil || selectedLocation != nil
+                    dismiss()
                 } label: {
                     HStack {
                         Image(systemName: "line.3.horizontal.decrease.circle")
@@ -78,7 +80,7 @@ struct FilterSheetView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.gray)
+                    .background(selectedCategory != nil || selectedPriceRange != nil || selectedLocation != nil ? Color.orange : Color.gray)
                     .foregroundColor(.white)
                     .cornerRadius(8)
                     .padding(.horizontal)
@@ -92,13 +94,15 @@ struct FilterSheetView: View {
                         selectedCategory = nil
                         selectedPriceRange = nil
                         selectedLocation = nil
+                        isFilterActive = false
                     }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Apply") {
-                        dismiss() // Tutup sheet
-                    }
-                }
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Button("Apply") {
+//                        isFilterActive = selectedCategory != nil || selectedPriceRange != nil || selectedLocation != nil
+//                        dismiss()
+//                    }
+//                }
             }
         }
     }
@@ -123,10 +127,12 @@ struct FilterButton: View {
     @State var previewSelectedCategory: String? = nil
     @State var previewSelectedPriceRange: String? = nil
     @State var previewSelectedLocation: String? = nil
+    @State var previewIsFilterActive = false
 
     return FilterSheetView(
         selectedCategory: $previewSelectedCategory,
         selectedPriceRange: $previewSelectedPriceRange,
-        selectedLocation: $previewSelectedLocation
+        selectedLocation: $previewSelectedLocation,
+        isFilterActive: $previewIsFilterActive
     )
 }

@@ -3,7 +3,7 @@ import MapKit
 
 struct ContentView: View {
     // MARK: - State Properties
-
+    
     @State private var searchText = ""
     @State private var selectedCategory: String? = nil
     @FocusState private var searchFieldFocused: Bool
@@ -19,26 +19,28 @@ struct ContentView: View {
     @State private var isMapActive = false
     @State private var showNavigationButtonInternal = false
     @State private var isMapActiveInternal = false
+    @State private var isFilterActive = false
+    @State private var shouldShowFilterButton = false
     
-
+    
     // MARK: - Computed Properties
-
+    
     let categories: [String] = ["Semua Menu", "Makanan Berat", "Makanan Ringan", "Minuman", "Pasti Halal"]
-
+    
     var filteredAndCategorizedMenu: [MenuItem] {
         var filtered = MenuItem.all
         
         if let category = selectedCategory, category != "Semua Menu" {
             filtered = filtered.filter { $0.category == category }
         }
-
+        
         if !searchText.isEmpty {
             filtered = filtered.filter {
                 $0.name.localizedCaseInsensitiveContains(searchText) ||
                 $0.description.localizedCaseInsensitiveContains(searchText)
             }
         }
-
+        
         if let priceRange = selectedPriceRange {
             filtered = filtered.filter { item in
                 if let price = item.priceValue {
@@ -53,14 +55,14 @@ struct ContentView: View {
                 }
             }
         }
-
+        
         if let location = selectedLocation, location != "All" {
             filtered = filtered.filter { $0.location == location }
         }
-
+        
         return filtered
     }
-
+    
     @ViewBuilder
     private var searchResultsView: some View {
         if !recentSearches.isEmpty && searchText.isEmpty {
@@ -84,31 +86,34 @@ struct ContentView: View {
             .transition(.move(edge: .top))
         }
     }
-
+    
     @ViewBuilder
-        private var mainContentView: some View {
-            if isCategoryListVisible {
-                MenuList(
-                    menuItems: filteredAndCategorizedMenu,
-                    categoryTitle: selectedCategory ?? "Semua Menu",
-                    showNavigationButton: $showNavigationButton,
-                    selectedMenuItem: $selectedMenuItem
-                )
-                .padding(.top, -25)
-                .padding(.top, 20)
-            } else {
-                VStack {
-                    RecommendationCarouselView(showNavigationButton: $showNavigationButton, isMapActive: $isMapActive)
-                        .padding(.top, 20)
-                    NearestHereCarouselView()
-                        .padding(.top, 20)
-                    YourFavoritesView(showNavigationButton: $showNavigationButton, isMapActive: $isMapActive)
-                }
+    private var mainContentView: some View {
+        if isCategoryListVisible {
+            MenuList(
+                menuItems: filteredAndCategorizedMenu,
+                categoryTitle: selectedCategory ?? "Semua Menu",
+                showNavigationButton: $showNavigationButton,
+                selectedMenuItem: $selectedMenuItem
+            )
+            .padding(.top, -25)
+            .padding(.top, 20)
+        } else {
+            VStack {
+                RecommendationCarouselView(showNavigationButton: $showNavigationButton, isMapActive: $isMapActive)
+                    .padding(.top, 20)
+                NearestHereCarouselView()
+                    .padding(.top, 20)
+                YourFavoritesView(showNavigationButton: $showNavigationButton, isMapActive: $isMapActive)
             }
         }
-
+        
+    }
+    
+    
+    
     // MARK: - Helper Functions
-
+    
     func addRecentSearch(_ query: String) {
         if let index = recentSearches.firstIndex(of: query) {
             recentSearches.remove(at: index)
@@ -118,7 +123,7 @@ struct ContentView: View {
             recentSearches.removeLast()
         }
     }
-
+    
     func generateRandomRecommendations(count: Int = 3) {
         guard !MenuItem.all.isEmpty else {
             randomRecommendations = []
@@ -127,9 +132,9 @@ struct ContentView: View {
         let shuffled = MenuItem.all.shuffled()
         randomRecommendations = Array(shuffled.prefix(min(count, MenuItem.all.count)))
     }
-
+    
     // MARK: - View Body
-
+    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
@@ -140,9 +145,11 @@ struct ContentView: View {
                             selectedCategory: $selectedCategory,
                             searchFieldFocused: _searchFieldFocused,
                             recentSearches: $recentSearches,
-                            isFilterSheetPresented: $isFilterSheetPresented
+                            isFilterSheetPresented: $isFilterSheetPresented,
+                            isFilterActive: $isFilterActive,
+                            shouldShowFilterButton: $shouldShowFilterButton
                         )
-
+                        
                         ScrollView {
                             VStack(alignment: .leading) {
                                 CategoryButtonView(
@@ -154,7 +161,7 @@ struct ContentView: View {
                                 .opacity(searchFieldFocused ? 0 : 1)
                                 .animation(.easeInOut(duration: 0.2), value: searchFieldFocused)
                             }
-
+                            
                             if searchFieldFocused {
                                 searchResultsView
                             } else {
@@ -171,15 +178,19 @@ struct ContentView: View {
                         isCategoryListVisible = false
                         selectedCategory = nil
                     }
+                    showNavigationButton = false
+                    shouldShowFilterButton = false
                 }
                 .onChange(of: searchFieldFocused) { _, newValue in
                     if newValue {
                         if searchText.isEmpty {
                             generateRandomRecommendations()
                         }
+                        shouldShowFilterButton = true
                     } else {
                         randomRecommendations = []
                         showNoResultsAlert = false
+                        shouldShowFilterButton = false
                     }
                 }
                 .onChange(of: searchText) { _, _ in
@@ -193,16 +204,28 @@ struct ContentView: View {
                     FilterSheetView(
                         selectedCategory: $selectedCategory,
                         selectedPriceRange: $selectedPriceRange,
-                        selectedLocation: $selectedLocation
+                        selectedLocation: $selectedLocation,
+                        isFilterActive: $isFilterActive
                     )
                 }
-
+                
                 if showNavigationButton {
-                    VStack {
-                        Spacer()
-                        ButtonNavView(isMapActive: $isMapActive, showNavigationButton: $showNavigationButton)
+                    GeometryReader { geometry in
+                        VStack {
+                            Spacer()
+                            ButtonNavView(isMapActive: $isMapActive, showNavigationButton: $showNavigationButton)
+                                .frame(width: geometry.size.width, alignment: .bottom)
+                        }
+                        .contentShape(Rectangle()) // Membuat area responsif tap sebesar tombol navigasi
+                        .gesture(
+                            TapGesture()
+                                .onEnded {
+                                    showNavigationButton = false
+                                }
+                        )
                     }
                     .zIndex(1)
+                    .transition(.move(edge: .bottom))
                 }
                 
             }
@@ -217,7 +240,7 @@ struct ContentView: View {
 struct RecentSearchesView: View {
     @Binding var recentSearches: [String]
     @Binding var searchText: String
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Pencarian Terakhir")
@@ -256,14 +279,14 @@ struct NoSearchResultsView: View {
     @Binding var showNavigationButton: Bool
     @Binding var selectedMenuItem: MenuItem?
     let generateRandomRecommendations: (Int) -> Void
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Maaf, kami tidak menemukan \"\(searchText)\"")
                 .foregroundColor(.gray)
                 .padding(.horizontal)
                 .padding(.top)
-
+            
             if !randomRecommendations.isEmpty {
                 MenuList(
                     menuItems: randomRecommendations,

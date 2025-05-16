@@ -20,7 +20,7 @@ struct FavoriteItemView: View {
             Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 120) // Sesuaikan lebar gambar
+                .frame(width: 130) // Sesuaikan lebar gambar
                 .clipped()
 
             // Bagian Informasi Teks
@@ -43,6 +43,9 @@ struct FavoriteItemView: View {
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow.opacity(0.8))
                 }
+                
+                Spacer()
+                
                 Text(description)
                     .font(.caption)
                     .foregroundColor(.gray)

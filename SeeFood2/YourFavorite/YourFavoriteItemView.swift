@@ -24,7 +24,7 @@ struct YourFavoriteItemView: View {
             Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 120) // Sesuaikan lebar gambar
+                .frame(width: 130) // Sesuaikan lebar gambar
                 .clipped()
             
             VStack(alignment: .leading, spacing: 8) {
@@ -46,6 +46,9 @@ struct YourFavoriteItemView: View {
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow.opacity(0.7))
                 }
+                
+                Spacer()
+                
                 Text(description)
                     .font(.caption)
                     .foregroundColor(.gray)

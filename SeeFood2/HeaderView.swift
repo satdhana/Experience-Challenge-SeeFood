@@ -6,7 +6,9 @@ struct HeaderView: View {
     @FocusState var searchFieldFocused: Bool
     @Binding var recentSearches: [String]
     @Binding var isFilterSheetPresented: Bool
+    @Binding var isFilterActive: Bool
     @StateObject var locationManager = LocationManagers()
+    @Binding var shouldShowFilterButton: Bool
     
     func addRecentSearch(_ query: String) {
         if let index = recentSearches.firstIndex(of: query) {
@@ -72,14 +74,15 @@ struct HeaderView: View {
                             )
                             .frame(maxWidth: .infinity)
                             .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 4)
+                            
                             // Kondisi untuk menampilkan tombol filter
-                            if searchFieldFocused {
+                            if shouldShowFilterButton {
                                 Button {
                                     isFilterSheetPresented = true
                                 } label: {
                                     Image(systemName: "slider.horizontal.3")
                                         .font(.title2)
-                                        .foregroundColor(.gray)
+                                        .foregroundColor(isFilterActive ? .orange : .gray)
                                         .padding(8)
                                 }
                                 .frame(width: 44, height: 44, alignment: .center)
@@ -114,13 +117,17 @@ struct HeaderView: View {
     @State var previewSelectedCategory: String? = nil
     @FocusState var previewSearchFieldFocused: Bool
     @State var previewRecentSearches: [String] = []
-    @State var previewIsFilterSheetPresented = false // Tambahkan state untuk isFilterSheetPresented
+    @State var previewIsFilterSheetPresented = false
+    @State var previewIsFilterActive = true
+    @State var previewShouldShowFilterButton = false
     
     return HeaderView(
-        searchText: $previewSearchText,
-        selectedCategory: $previewSelectedCategory,
-        searchFieldFocused: _previewSearchFieldFocused,
-        recentSearches: $previewRecentSearches,
-        isFilterSheetPresented: $previewIsFilterSheetPresented
-    )
+            searchText: $previewSearchText,
+            selectedCategory: $previewSelectedCategory,
+            searchFieldFocused: _previewSearchFieldFocused,
+            recentSearches: $previewRecentSearches,
+            isFilterSheetPresented: $previewIsFilterSheetPresented,
+            isFilterActive: $previewIsFilterActive,
+            shouldShowFilterButton: $previewShouldShowFilterButton
+        )
 }

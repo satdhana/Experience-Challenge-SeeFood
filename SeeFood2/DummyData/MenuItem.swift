@@ -7,7 +7,7 @@ struct MenuItem: Identifiable {
     let description: String
     let price: String
     let category: String
-    let location: String? 
+    let location: String?
 
     var priceValue: Int? {
         return price.replacingOccurrences(of: "Rp ", with: "").replacingOccurrences(of: ".-", with: "").replacingOccurrences(of: ".", with: "").toInt()
@@ -24,7 +24,7 @@ let menuData: [String: [[String: String]]] = [
     "Makanan Berat": [
         [
             "name": "Nasi Uduk",
-            "imageName": "nasi_uduk",
+            "imageName": "MB-1",
             "description": "Nasi gurih beraroma serai dan santan. Bertabur bawang goreng.",
             "price": "Rp 15.000,-",
             "category": "Makanan Berat",
@@ -32,7 +32,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Nasi Ayam Madu",
-            "imageName": "nasi_ayam_madu",
+            "imageName": "MB-2",
             "description": "Nasi hangat dengan ayam berlapis madu alami gurih.",
             "price": "Rp 45.000,-",
             "category": "Makanan Berat",
@@ -40,7 +40,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Nasi Ayam Jeruk",
-            "imageName": "nasi_ayam_jeruk",
+            "imageName": "MB-3",
             "description": "Nasi hangat dengan irisan jeruk segar menyegarkan.",
             "price": "Rp 40.000,-",
             "category": "Makanan Berat",
@@ -48,7 +48,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Rica-rica Ayam",
-            "imageName": "rica_rica_ayam",
+            "imageName": "MB-4",
             "description": "Ayam pedas bumbu rica-rica khas negara hangat.",
             "price": "Rp 35.000,-",
             "category": "Makanan Berat",
@@ -56,7 +56,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Nasi Ikan Tuna",
-            "imageName": "nasi_ikan_tuna",
+            "imageName": "MB-5",
             "description": "Nasi hangat dengan tuna bakar bumbu khas pulau.",
             "price": "Rp 50.000,-",
             "category": "Makanan Berat",
@@ -64,7 +64,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Mie Laksa",
-            "imageName": "mie_laksa",
+            "imageName": "MB-6",
             "description": "Mie kuah dengan sayur dan tahu serta rempah khas dari Singapura.",
             "price": "Rp 38.000,-",
             "category": "Makanan Berat",
@@ -72,7 +72,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Bubur India",
-            "imageName": "bubur_india",
+            "imageName": "H-1",
             "description": "Bubur hangat dengan irisan buah, kacang, dan santan.",
             "price": "Rp 28.000,-",
             "category": "Makanan Berat",
@@ -80,7 +80,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Menu Sarapan",
-            "imageName": "menu_sarapan",
+            "imageName": "H-3",
             "description": "Nasi hangat dengan telur mata sapi.",
             "price": "Rp 22.000,-",
             "category": "Makanan Berat",
@@ -88,7 +88,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Steak",
-            "imageName": "steak",
+            "imageName": "H-5",
             "description": "Daging panggang dengan tambahan saus dan irisan sayuran.",
             "price": "Rp 60.000,-",
             "category": "Makanan Berat",
@@ -98,7 +98,7 @@ let menuData: [String: [[String: String]]] = [
     "Makanan Ringan": [
         [
             "name": "Salad Sayur",
-            "imageName": "salad_sayur",
+            "imageName": "MR-1",
             "description": "Campuran sayuran segar, dan keju dengan mayones yang bervariasi.",
             "price": "Rp 30.000,-",
             "category": "Makanan Ringan",
@@ -106,7 +106,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Pizza",
-            "imageName": "pizza",
+            "imageName": "MR-2",
             "description": "Pizza dengan pilihan isian dari daging, sayur, dan keju.",
             "price": "Rp 35.000,-",
             "category": "Makanan Ringan",
@@ -114,7 +114,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Roti Isi",
-            "imageName": "roti_isi",
+            "imageName": "MR-3",
             "description": "Roti gandum dengan isian sayur, buah, daging, telur yang bergizi.",
             "price": "Rp 25.000,-",
             "category": "Makanan Ringan",
@@ -122,7 +122,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Keripik Ikan",
-            "imageName": "keripik_ikan",
+            "imageName": "MR-4",
             "description": "Keripik ikan tenggiri yang kaya gizi dengan pilihan rasa beragam.",
             "price": "Rp 18.000,-",
             "category": "Makanan Ringan",
@@ -130,7 +130,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Makaroni",
-            "imageName": "makaroni",
+            "imageName": "MR-5",
             "description": "Makaroni dengan bumbu keju khas dan sayur yang gurih.",
             "price": "Rp 20.000,-",
             "category": "Makanan Ringan",
@@ -138,7 +138,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Sosis Panggang",
-            "imageName": "sosis_panggang",
+            "imageName": "MR-6",
             "description": "Sosis panggang dengan saus tomat dan sayur.",
             "price": "Rp 28.000,-",
             "category": "Makanan Ringan",
@@ -146,7 +146,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Kentang Goreng",
-            "imageName": "kentang_goreng",
+            "imageName": "H-2",
             "description": "Kentang goreng renyah dengan mayones dan saus panggang.",
             "price": "Rp 15.000,-",
             "category": "Makanan Ringan",
@@ -154,7 +154,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Panekuk",
-            "imageName": "panekuk",
+            "imageName": "H-4",
             "description": "Panekuk dengan taburan kacang dan krim susu.",
             "price": "Rp 38.000,-",
             "category": "Makanan Ringan",
@@ -162,7 +162,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Smoothies",
-            "imageName": "smoothies",
+            "imageName": "H-6",
             "description": "Campuran buah yang dihaluskan dengan taburan buah potong.",
             "price": "Rp 37.000,-",
             "category": "Makanan Ringan",
@@ -172,7 +172,7 @@ let menuData: [String: [[String: String]]] = [
     "Minuman": [
         [
             "name": "Es Kelapa",
-            "imageName": "es_kelapa",
+            "imageName": "M-1",
             "description": "Es kelapa dingin berisi serutan buah kelapa yang segar.",
             "price": "Rp 22.000,-",
             "category": "Minuman",
@@ -180,7 +180,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Es Teh",
-            "imageName": "es_teh",
+            "imageName": "M-2",
             "description": "Es teh dingin dari Suko yang memiliki rasa khas.",
             "price": "Rp 8.000,-",
             "category": "Minuman",
@@ -188,7 +188,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Jus Semangka",
-            "imageName": "jus_semangka",
+            "imageName": "M-3",
             "description": "Jus semangka hasil panen petani lokal.",
             "price": "Rp 12.000,-",
             "category": "Minuman",
@@ -196,7 +196,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Air Infus",
-            "imageName": "air_infus",
+            "imageName": "M-4",
             "description": "Air mineral dingin dengan irisan buah jeruk nipis atau mentimun.",
             "price": "Rp 15.000,-",
             "category": "Minuman",
@@ -204,7 +204,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Jus Wortel",
-            "imageName": "jus_wortel",
+            "imageName": "M-5",
             "description": "Jus wortel dengan campuran sedikit nanas segar.",
             "price": "Rp 18.000,-",
             "category": "Minuman",
@@ -212,7 +212,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Soda Gembira",
-            "imageName": "soda_gembira",
+            "imageName": "M-6",
             "description": "Es soda dingin dengan sirup perasa buah yang segar.",
             "price": "Rp 20.000,-",
             "category": "Minuman",
@@ -222,7 +222,7 @@ let menuData: [String: [[String: String]]] = [
     "Pasti Halal": [
         [
             "name": "Nasi Uduk (Halal)",
-            "imageName": "nasi_uduk",
+            "imageName": "MB-1",
             "description": "Nasi gurih beraroma serai dan santan. Bertabur bawang goreng.",
             "price": "Rp 15.000,-",
             "category": "Pasti Halal",
@@ -230,7 +230,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Salad Sayur (Halal)",
-            "imageName": "salad_sayur",
+            "imageName": "MR-1",
             "description": "Campuran sayuran segar, dan keju dengan mayones yang bervariasi.",
             "price": "Rp 30.000,-",
             "category": "Pasti Halal",
@@ -238,7 +238,7 @@ let menuData: [String: [[String: String]]] = [
         ],
         [
             "name": "Es Kelapa (Halal)",
-            "imageName": "es_kelapa",
+            "imageName": "M-1",
             "description": "Es kelapa dingin berisi serutan buah kelapa yang segar.",
             "price": "Rp 22.000,-",
             "category": "Pasti Halal",
