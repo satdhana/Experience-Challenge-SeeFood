@@ -34,7 +34,7 @@ struct YourFavoriteItemView: View {
                             .font(.headline)
                             .fontWeight(.bold)
                         HStack(spacing: 4) {
-                            Image(systemName: "mappin.fill")
+                            Image(systemName: "mappin")
                                 .font(.caption2)
                                 .foregroundColor(.gray)
                             Text(location)
@@ -59,7 +59,7 @@ struct YourFavoriteItemView: View {
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
         }
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, minHeight: 100, maxHeight: 135)
         .background(Color.white)
         .cornerRadius(10)
         .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)

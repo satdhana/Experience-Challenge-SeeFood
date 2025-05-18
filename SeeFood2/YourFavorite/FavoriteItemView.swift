@@ -31,7 +31,7 @@ struct FavoriteItemView: View {
                             .font(.headline)
                             .fontWeight(.bold)
                         HStack(spacing: 4) {
-                            Image(systemName: "mappin.fill")
+                            Image(systemName: "mappin")
                                 .font(.caption2)
                                 .foregroundColor(.gray)
                             Text(location)
@@ -56,7 +56,7 @@ struct FavoriteItemView: View {
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
         }
-        .frame(width: .infinity) // Sesuaikan lebar keseluruhan item
+        .frame(width: .infinity, height: 135) // Sesuaikan lebar keseluruhan item
         .background(Color.white) // Berikan background putih
         .cornerRadius(10) // Tambahkan corner radius
         .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)

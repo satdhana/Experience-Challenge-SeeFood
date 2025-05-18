@@ -105,7 +105,7 @@ struct HeaderView: View {
         }
         .frame(height: 120)
         .ignoresSafeArea(.all)
-        .padding(.bottom, -20)
+        .padding(.bottom, -15)
         .onAppear {
                     locationManager.startUpdatingLocation()
                 }

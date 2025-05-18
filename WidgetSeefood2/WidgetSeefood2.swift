@@ -21,15 +21,15 @@ struct RekomendasiItem: Identifiable {
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), rekomendasi: [
-            RekomendasiItem(nama: "Mie Laksa", lokasi: "The Breeze", jarak: "500m", harga: "Rp 45.000,-", imageName: "mie_laksa_placeholder"),
-            RekomendasiItem(nama: "Soda Gembira", lokasi: "Traveloka Campus", jarak: "900m", harga: "Rp 35.000,-", imageName: "soda_gembira_placeholder")
+            RekomendasiItem(nama: "Mie Laksa", lokasi: "The Breeze", jarak: "500m", harga: "Rp 45 K", imageName: "MB-1"),
+            RekomendasiItem(nama: "Es Kelapa", lokasi: "GOP 9", jarak: "900m", harga: "Rp 35 K", imageName: "M-1")
         ])
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
         SimpleEntry(date: Date(), rekomendasi: [
-            RekomendasiItem(nama: "Mie Laksa", lokasi: "The Breeze", jarak: "500m", harga: "Rp 45.000,-", imageName: "mie_laksa_placeholder"),
-            RekomendasiItem(nama: "Soda Gembira", lokasi: "Traveloka Campus", jarak: "900m", harga: "Rp 35.000,-", imageName: "soda_gembira_placeholder")
+            RekomendasiItem(nama: "Nasi Ayam", lokasi: "GOP 6", jarak: "300m", harga: "Rp 35 K", imageName: "MB-2"),
+            RekomendasiItem(nama: "Jus Wortel", lokasi: "The Breeze", jarak: "500m", harga: "Rp 20 K", imageName: "M-5")
         ])
     }
 
@@ -37,8 +37,8 @@ struct Provider: AppIntentTimelineProvider {
         var entries: [SimpleEntry] = []
         let currentDate = Date()
         let rekomendasiData: [RekomendasiItem] = [
-            RekomendasiItem(nama: "Mie Laksa", lokasi: "The Breeze", jarak: "500m", harga: "Rp 45.000,-", imageName: "mie_laksa"),
-            RekomendasiItem(nama: "Soda Gembira", lokasi: "Traveloka Campus", jarak: "900m", harga: "Rp 35.000,-", imageName: "soda_gembira")
+            RekomendasiItem(nama: "Nasi Ayam", lokasi: "GOP 6", jarak: "300m", harga: "Rp 35 K", imageName: "MB-2"),
+            RekomendasiItem(nama: "Jus Wortel", lokasi: "The Breeze", jarak: "500m", harga: "Rp 20 K", imageName: "M-5")
         ]
 
         for hourOffset in 0 ..< 5 {
@@ -153,25 +153,25 @@ struct Widget_Seefood2: Widget {
 }
 
 // Dummy Image Assets (for Preview)
-extension Image {
-    static let mie_laksa = Image("MB-1")
-    static let soda_gembira = Image("MB-2")
-}
+//extension Image {
+//    static let mie_laksa = Image("MB-1")
+//    static let soda_gembira = Image("MB-2")
+//}
 
-#if DEBUG
-struct MieLaksa_Previews: PreviewProvider {
-    static var previews: some View {
-        Image("MB-3")
-            .resizable()
-            .frame(width: 100, height: 70)
-    }
-}
-
-struct SodaGembira_Previews: PreviewProvider {
-    static var previews: some View {
-        Image("MB-4")
-            .resizable()
-            .frame(width: 100, height: 70)
-    }
-}
-#endif
+//#if DEBUG
+//struct MieLaksa_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Image("MB-3")
+//            .resizable()
+//            .frame(width: 100, height: 70)
+//    }
+//}
+//
+//struct SodaGembira_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Image("MB-4")
+//            .resizable()
+//            .frame(width: 100, height: 70)
+//    }
+//}
+//#endif

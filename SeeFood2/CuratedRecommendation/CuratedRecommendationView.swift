@@ -51,7 +51,7 @@ struct CuratedRecommendationsView: View {
                 }
                 .padding(.top, 40)
             }
-            .frame(height: 140)
+            .frame(height: 130)
 
             // List Rekomendasi
             ScrollView {

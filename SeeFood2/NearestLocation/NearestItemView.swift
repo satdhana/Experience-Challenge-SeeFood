@@ -29,7 +29,7 @@ struct NearestHereListItemView: View {
                     .foregroundColor(.black)
 
                 HStack(spacing: 4) {
-                    Image(systemName: "mappin.fill")
+                    Image(systemName: "mappin")
                         .font(.caption)
                         .foregroundColor(.gray)
                     Text(location)

@@ -49,7 +49,7 @@ struct RecommendationItemView: View {
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
         }
-        .frame(width: 330) // Sesuaikan lebar keseluruhan item
+        .frame(width: 330, height: 140) // Sesuaikan lebar keseluruhan item
         .background(Color.white) // Berikan background putih
         .cornerRadius(10) // Tambahkan corner radius
         .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
