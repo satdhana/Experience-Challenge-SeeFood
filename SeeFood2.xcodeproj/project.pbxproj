@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EC2EFDC32DD7393E00108E35 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2EFDC22DD7393E00108E35 /* WidgetKit.framework */; };
+		EC2EFDC52DD7393E00108E35 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2EFDC42DD7393E00108E35 /* SwiftUI.framework */; };
+		EC2EFDD62DD7393F00108E35 /* WidgetSeefood2Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EC2EFDC02DD7393E00108E35 /* WidgetSeefood2Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		EC2E523D2DCB28DB00780C58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,17 +27,68 @@
 			remoteGlobalIDString = EC2E522B2DCB28DA00780C58;
 			remoteInfo = SeeFood2;
 		};
+		EC2EFDD42DD7393F00108E35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2E52242DCB28DA00780C58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC2EFDBF2DD7393E00108E35;
+			remoteInfo = WidgetSeefood2Extension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EC2EFDD72DD7393F00108E35 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EC2EFDD62DD7393F00108E35 /* WidgetSeefood2Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		EC2E522C2DCB28DA00780C58 /* SeeFood2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeeFood2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2E523C2DCB28DB00780C58 /* SeeFood2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeeFood2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2E52462DCB28DB00780C58 /* SeeFood2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeeFood2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC2EFDC02DD7393E00108E35 /* WidgetSeefood2Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetSeefood2Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC2EFDC22DD7393E00108E35 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		EC2EFDC42DD7393E00108E35 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EC2EFDDA2DD7393F00108E35 /* Exceptions for "WidgetSeefood2" folder in "WidgetSeefood2Extension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = EC2EFDBF2DD7393E00108E35 /* WidgetSeefood2Extension */;
+		};
+		EC2EFE362DD73F5D00108E35 /* Exceptions for "SeeFood2" folder in "WidgetSeefood2Extension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+			);
+			target = EC2EFDBF2DD7393E00108E35 /* WidgetSeefood2Extension */;
+		};
+		EC2EFE382DD73F8200108E35 /* Exceptions for "WidgetSeefood2" folder in "SeeFood2" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+			);
+			target = EC2E522B2DCB28DA00780C58 /* SeeFood2 */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		EC2E522E2DCB28DA00780C58 /* SeeFood2 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EC2EFE362DD73F5D00108E35 /* Exceptions for "SeeFood2" folder in "WidgetSeefood2Extension" target */,
+			);
 			path = SeeFood2;
 			sourceTree = "<group>";
 		};
@@ -43,6 +100,15 @@
 		EC2E52492DCB28DB00780C58 /* SeeFood2UITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SeeFood2UITests;
+			sourceTree = "<group>";
+		};
+		EC2EFDC62DD7393E00108E35 /* WidgetSeefood2 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EC2EFE382DD73F8200108E35 /* Exceptions for "WidgetSeefood2" folder in "SeeFood2" target */,
+				EC2EFDDA2DD7393F00108E35 /* Exceptions for "WidgetSeefood2" folder in "WidgetSeefood2Extension" target */,
+			);
+			path = WidgetSeefood2;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -69,6 +135,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EC2EFDBD2DD7393E00108E35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC2EFDC52DD7393E00108E35 /* SwiftUI.framework in Frameworks */,
+				EC2EFDC32DD7393E00108E35 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +153,8 @@
 				EC2E522E2DCB28DA00780C58 /* SeeFood2 */,
 				EC2E523F2DCB28DB00780C58 /* SeeFood2Tests */,
 				EC2E52492DCB28DB00780C58 /* SeeFood2UITests */,
+				EC2EFDC62DD7393E00108E35 /* WidgetSeefood2 */,
+				EC2EFDC12DD7393E00108E35 /* Frameworks */,
 				EC2E522D2DCB28DA00780C58 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,8 +165,18 @@
 				EC2E522C2DCB28DA00780C58 /* SeeFood2.app */,
 				EC2E523C2DCB28DB00780C58 /* SeeFood2Tests.xctest */,
 				EC2E52462DCB28DB00780C58 /* SeeFood2UITests.xctest */,
+				EC2EFDC02DD7393E00108E35 /* WidgetSeefood2Extension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EC2EFDC12DD7393E00108E35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC2EFDC22DD7393E00108E35 /* WidgetKit.framework */,
+				EC2EFDC42DD7393E00108E35 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,10 +189,12 @@
 				EC2E52282DCB28DA00780C58 /* Sources */,
 				EC2E52292DCB28DA00780C58 /* Frameworks */,
 				EC2E522A2DCB28DA00780C58 /* Resources */,
+				EC2EFDD72DD7393F00108E35 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EC2EFDD52DD7393F00108E35 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				EC2E522E2DCB28DA00780C58 /* SeeFood2 */,
@@ -163,6 +252,28 @@
 			productReference = EC2E52462DCB28DB00780C58 /* SeeFood2UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		EC2EFDBF2DD7393E00108E35 /* WidgetSeefood2Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC2EFDDB2DD7393F00108E35 /* Build configuration list for PBXNativeTarget "WidgetSeefood2Extension" */;
+			buildPhases = (
+				EC2EFDBC2DD7393E00108E35 /* Sources */,
+				EC2EFDBD2DD7393E00108E35 /* Frameworks */,
+				EC2EFDBE2DD7393E00108E35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EC2EFDC62DD7393E00108E35 /* WidgetSeefood2 */,
+			);
+			name = WidgetSeefood2Extension;
+			packageProductDependencies = (
+			);
+			productName = WidgetSeefood2Extension;
+			productReference = EC2EFDC02DD7393E00108E35 /* WidgetSeefood2Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,6 +295,9 @@
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = EC2E522B2DCB28DA00780C58;
 					};
+					EC2EFDBF2DD7393E00108E35 = {
+						CreatedOnToolsVersion = 16.2;
+					};
 				};
 			};
 			buildConfigurationList = EC2E52272DCB28DA00780C58 /* Build configuration list for PBXProject "SeeFood2" */;
@@ -203,6 +317,7 @@
 				EC2E522B2DCB28DA00780C58 /* SeeFood2 */,
 				EC2E523B2DCB28DB00780C58 /* SeeFood2Tests */,
 				EC2E52452DCB28DB00780C58 /* SeeFood2UITests */,
+				EC2EFDBF2DD7393E00108E35 /* WidgetSeefood2Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +338,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EC2E52442DCB28DB00780C58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC2EFDBE2DD7393E00108E35 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +375,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EC2EFDBC2DD7393E00108E35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +394,11 @@
 			isa = PBXTargetDependency;
 			target = EC2E522B2DCB28DA00780C58 /* SeeFood2 */;
 			targetProxy = EC2E52472DCB28DB00780C58 /* PBXContainerItemProxy */;
+		};
+		EC2EFDD52DD7393F00108E35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC2EFDBF2DD7393E00108E35 /* WidgetSeefood2Extension */;
+			targetProxy = EC2EFDD42DD7393F00108E35 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -518,6 +652,60 @@
 			};
 			name = Release;
 		};
+		EC2EFDD82DD7393F00108E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JVSZ45Z2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetSeefood2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetSeefood2;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.core-challenge.SeeFood2.WidgetSeefood2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC2EFDD92DD7393F00108E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JVSZ45Z2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetSeefood2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetSeefood2;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.core-challenge.SeeFood2.WidgetSeefood2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -553,6 +741,15 @@
 			buildConfigurations = (
 				EC2E52572DCB28DB00780C58 /* Debug */,
 				EC2E52582DCB28DB00780C58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC2EFDDB2DD7393F00108E35 /* Build configuration list for PBXNativeTarget "WidgetSeefood2Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC2EFDD82DD7393F00108E35 /* Debug */,
+				EC2EFDD92DD7393F00108E35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -73,7 +73,7 @@ struct RecommendationCarouselView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Rekomendasi Terpopuler")
+                Text("Menu Terpopuler")
                     .font(.title3)
                     .fontWeight(.bold)
                 Spacer()

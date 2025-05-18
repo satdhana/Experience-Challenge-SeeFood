@@ -38,7 +38,7 @@ struct CuratedRecommendationsView: View {
                         }
                         Spacer()
                         VStack(alignment: .center) {
-                            Text("Rekomendasi Terpopuler")
+                            Text("Menu Terpopuler")
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
