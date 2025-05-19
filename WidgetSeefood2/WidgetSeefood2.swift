@@ -107,7 +107,6 @@ struct MediumWidgetView : View {
                         .fontWeight(.bold)
                     Text("Yuk tentukan sebelum waktu makan")
                         .font(.footnote)
-                        .foregroundColor(.black)
                         .padding(.bottom, 8)
                 }
             

@@ -40,10 +40,12 @@ struct NearestHereItemView: View {
 
 struct NearestHereCarouselView: View {
     let nearestPlaces: [NearestPlace] = [
-        NearestPlace(imageName: "A", placeName: "Uena", locationInfo: "The Breeze | 500m"),
+        NearestPlace(imageName: "A", placeName: "Alfamart", locationInfo: "GOP 9 | 50m"),
         NearestPlace(imageName: "M", placeName: "Mama Jempol", locationInfo: "GOP 9 | 50m"),
         NearestPlace(imageName: "K", placeName: "Kasturi", locationInfo: "GOP 9 | 50m"),
-        NearestPlace(imageName: "L", placeName: "Wisteria", locationInfo: "The Breeze | 750m"),
+        NearestPlace(imageName: "L", placeName: "Lawson", locationInfo: "GOP 6 | 200m"),
+        NearestPlace(imageName: "R", placeName: "RM Padang", locationInfo: "The Breeze | 750m"),
+        NearestPlace(imageName: "S", placeName: "Soto Sawan", locationInfo: "The Breeze | 750m"),
     ]
     
     var body: some View {

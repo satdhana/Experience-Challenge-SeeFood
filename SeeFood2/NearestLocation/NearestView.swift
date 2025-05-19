@@ -4,14 +4,14 @@ struct NearestView: View {
     @Environment(\.dismiss) var dismiss
     
     let nearestPlacesData: [NearestPlaceData] = [
-        NearestPlaceData(imageName: "A", title: "Uena", location: "The Breeze | 500m", distanceInMeters: 500, openHours: "10:00 - 22:00", phoneNumber: "+62982345743", priceRange: "Rp 20.000 - Rp 80.000"),
-        NearestPlaceData(imageName: "M", title: "Mama Jempol", location: "GOP 9 | 50m", distanceInMeters: 50, openHours: "09:00 - 14:00", phoneNumber: "+62934857323", priceRange: "Rp 15.000 - Rp 55.000"),
-        NearestPlaceData(imageName: "K", title: "Kasturi", location: "GOP 9 | 55m", distanceInMeters: 55, openHours: "11:00 - 21:00", phoneNumber: "+6248756322", priceRange: "Rp 25.000 - Rp 70.000"),
-        NearestPlaceData(imageName: "L", title: "Wisteria", location: "The Breeze | 750m", distanceInMeters: 750, openHours: "18:00 - 23:00", phoneNumber: "+62403895783", priceRange: "Rp 30.000 - Rp 90.000"),
-        NearestPlaceData(imageName: "A", title: "Uena", location: "The Breeze | 400m", distanceInMeters: 400, openHours: "10:00 - 22:00", phoneNumber: "+62439587395", priceRange: "Rp 20.000 - Rp 80.000"),
+        NearestPlaceData(imageName: "Uena", title: "Uena", location: "The Breeze | 500m", distanceInMeters: 500, openHours: "10:00 - 22:00", phoneNumber: "+62982345743", priceRange: "Rp 20.000 - Rp 80.000"),
+        NearestPlaceData(imageName: "L", title: "Lawson", location: "GOP 9 | 50m", distanceInMeters: 50, openHours: "09:00 - 14:00", phoneNumber: "+62934857323", priceRange: "Rp 15.000 - Rp 55.000"),
+        NearestPlaceData(imageName: "R", title: "RM Padang", location: "GOP 9 | 55m", distanceInMeters: 55, openHours: "11:00 - 21:00", phoneNumber: "+6248756322", priceRange: "Rp 25.000 - Rp 70.000"),
+        NearestPlaceData(imageName: "W", title: "Wisteria", location: "The Breeze | 750m", distanceInMeters: 750, openHours: "18:00 - 23:00", phoneNumber: "+62403895783", priceRange: "Rp 30.000 - Rp 90.000"),
+        NearestPlaceData(imageName: "A", title: "Alfamart", location: "The Breeze | 100m", distanceInMeters: 400, openHours: "10:00 - 22:00", phoneNumber: "+62439587395", priceRange: "Rp 20.000 - Rp 80.000"),
         NearestPlaceData(imageName: "M", title: "Mama Jempol", location: "GOP 9 | 60m", distanceInMeters: 60, openHours: "09:00 - 14:00", phoneNumber: "+624398573534", priceRange: "Rp 15.000 - Rp 55.000"),
         NearestPlaceData(imageName: "K", title: "Kasturi", location: "GOP 9 | 80m", distanceInMeters: 80, openHours: "11:00 - 21:00", phoneNumber: "+62349857435", priceRange: "Rp 25.000 - Rp 70.000"),
-        NearestPlaceData(imageName: "L", title: "Wisteria", location: "The Breeze | 700m", distanceInMeters: 700, openHours: "18:00 - 23:00", phoneNumber: "+623498573534", priceRange: "Rp 30.000 - Rp 90.000"),
+        NearestPlaceData(imageName: "S", title: "Soto Sawan", location: "The Breeze | 300m", distanceInMeters: 700, openHours: "18:00 - 23:00", phoneNumber: "+623498573534", priceRange: "Rp 30.000 - Rp 90.000"),
     ]
 
     @State private var selectedPlace: NearestPlaceData?

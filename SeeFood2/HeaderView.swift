@@ -96,11 +96,11 @@ struct HeaderView: View {
                             
                             
                         }
-                        .padding(.horizontal, 24)
                         
                         Spacer()
                     }
                         .padding(.top, 120)
+                        .padding(.horizontal, 20)
                 )
         }
         .frame(height: 120)
