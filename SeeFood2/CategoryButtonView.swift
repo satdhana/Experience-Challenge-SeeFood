@@ -35,7 +35,7 @@ struct CategoryButtonView: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 10) {
+            HStack(spacing: 6) {
                 ForEach(categories, id: \.self) { category in
                     Button {
                         if selectedCategory == category && isCategoryListVisible {

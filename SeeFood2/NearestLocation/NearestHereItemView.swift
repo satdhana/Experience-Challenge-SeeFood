@@ -12,6 +12,7 @@ struct NearestHereItemView: View {
     let placeName: String
     let locationInfo: String
     
+    
     var body: some View {
         VStack(spacing: 4) {
             Image(imageName)
@@ -74,12 +75,24 @@ struct NearestHereCarouselView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
                     ForEach(nearestPlaces) { place in
-                        NearestHereItemView(
-                            imageName: place.imageName,
-                            placeName: place.placeName,
-                            locationInfo: place.locationInfo
-                        )
-                    }
+                                            NavigationLink(destination: TenantDetailView(
+                                                tenant: NearestPlaceData(
+                                                    imageName: place.imageName,
+                                                    title: place.placeName,
+                                                    location: place.locationInfo,
+                                                    distanceInMeters: Int(place.locationInfo.components(separatedBy: "|").last?.components(separatedBy: "m").first?.trimmingCharacters(in: .whitespaces) ?? "0") ?? 0, // Perbaikan di sini
+                                                    openHours: "Belum Tersedia",
+                                                    phoneNumber: "Belum Tersedia",
+                                                    priceRange: "Belum Tersedia"
+                                                )
+                                            )){
+                                                NearestHereItemView(
+                                                    imageName: place.imageName,
+                                                    placeName: place.placeName,
+                                                    locationInfo: place.locationInfo
+                                                )
+                                            }
+                                        }
                 }
                 .padding(.horizontal, 28)
                 .padding(.bottom, 20)

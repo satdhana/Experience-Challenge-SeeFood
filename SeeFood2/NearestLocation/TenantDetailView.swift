@@ -10,6 +10,8 @@ import SwiftUI
 struct TenantDetailView: View {
     @Environment(\.dismiss) var dismiss
     
+    
+    
     struct MenuItem: Identifiable {
         let id = UUID()
         let imageName: String

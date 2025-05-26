@@ -64,7 +64,7 @@ struct RekomendasiCardView: View {
             Image(item.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 60, height: .infinity)
+                .frame(width: 60)
                 .clipped()
             VStack(alignment: .leading){
                 Text(item.nama)
