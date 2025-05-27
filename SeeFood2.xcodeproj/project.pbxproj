@@ -10,6 +10,7 @@
 		EC2EFDC32DD7393E00108E35 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2EFDC22DD7393E00108E35 /* WidgetKit.framework */; };
 		EC2EFDC52DD7393E00108E35 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2EFDC42DD7393E00108E35 /* SwiftUI.framework */; };
 		EC2EFDD62DD7393F00108E35 /* WidgetSeefood2Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EC2EFDC02DD7393E00108E35 /* WidgetSeefood2Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ECF637762DE458EB0044A2AB /* SeeFood2Watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = ECF637532DE458EA0044A2AB /* SeeFood2Watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,19 +35,51 @@
 			remoteGlobalIDString = EC2EFDBF2DD7393E00108E35;
 			remoteInfo = WidgetSeefood2Extension;
 		};
+		ECF637632DE458EB0044A2AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2E52242DCB28DA00780C58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECF637522DE458EA0044A2AB;
+			remoteInfo = "SeeFood2Watch Watch App";
+		};
+		ECF6376D2DE458EB0044A2AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2E52242DCB28DA00780C58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECF637522DE458EA0044A2AB;
+			remoteInfo = "SeeFood2Watch Watch App";
+		};
+		ECF637742DE458EB0044A2AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2E52242DCB28DA00780C58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECF637522DE458EA0044A2AB;
+			remoteInfo = "SeeFood2Watch Watch App";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		EC2EFDD72DD7393F00108E35 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 				EC2EFDD62DD7393F00108E35 /* WidgetSeefood2Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		ECF6377A2DE458EB0044A2AB /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				ECF637762DE458EB0044A2AB /* SeeFood2Watch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -57,6 +90,9 @@
 		EC2EFDC02DD7393E00108E35 /* WidgetSeefood2Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetSeefood2Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2EFDC22DD7393E00108E35 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		EC2EFDC42DD7393E00108E35 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		ECF637532DE458EA0044A2AB /* SeeFood2Watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeeFood2Watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECF637622DE458EB0044A2AB /* SeeFood2Watch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SeeFood2Watch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECF6376C2DE458EB0044A2AB /* SeeFood2Watch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SeeFood2Watch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -111,6 +147,21 @@
 			path = WidgetSeefood2;
 			sourceTree = "<group>";
 		};
+		ECF637542DE458EA0044A2AB /* SeeFood2Watch Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SeeFood2Watch Watch App";
+			sourceTree = "<group>";
+		};
+		ECF637652DE458EB0044A2AB /* SeeFood2Watch Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SeeFood2Watch Watch AppTests";
+			sourceTree = "<group>";
+		};
+		ECF6376F2DE458EB0044A2AB /* SeeFood2Watch Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SeeFood2Watch Watch AppUITests";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +195,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECF637502DE458EA0044A2AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF6375F2DE458EB0044A2AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF637692DE458EB0044A2AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -154,6 +226,9 @@
 				EC2E523F2DCB28DB00780C58 /* SeeFood2Tests */,
 				EC2E52492DCB28DB00780C58 /* SeeFood2UITests */,
 				EC2EFDC62DD7393E00108E35 /* WidgetSeefood2 */,
+				ECF637542DE458EA0044A2AB /* SeeFood2Watch Watch App */,
+				ECF637652DE458EB0044A2AB /* SeeFood2Watch Watch AppTests */,
+				ECF6376F2DE458EB0044A2AB /* SeeFood2Watch Watch AppUITests */,
 				EC2EFDC12DD7393E00108E35 /* Frameworks */,
 				EC2E522D2DCB28DA00780C58 /* Products */,
 			);
@@ -166,6 +241,9 @@
 				EC2E523C2DCB28DB00780C58 /* SeeFood2Tests.xctest */,
 				EC2E52462DCB28DB00780C58 /* SeeFood2UITests.xctest */,
 				EC2EFDC02DD7393E00108E35 /* WidgetSeefood2Extension.appex */,
+				ECF637532DE458EA0044A2AB /* SeeFood2Watch Watch App.app */,
+				ECF637622DE458EB0044A2AB /* SeeFood2Watch Watch AppTests.xctest */,
+				ECF6376C2DE458EB0044A2AB /* SeeFood2Watch Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,11 +268,13 @@
 				EC2E52292DCB28DA00780C58 /* Frameworks */,
 				EC2E522A2DCB28DA00780C58 /* Resources */,
 				EC2EFDD72DD7393F00108E35 /* Embed Foundation Extensions */,
+				ECF6377A2DE458EB0044A2AB /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				EC2EFDD52DD7393F00108E35 /* PBXTargetDependency */,
+				ECF637752DE458EB0044A2AB /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				EC2E522E2DCB28DA00780C58 /* SeeFood2 */,
@@ -274,6 +354,74 @@
 			productReference = EC2EFDC02DD7393E00108E35 /* WidgetSeefood2Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		ECF637522DE458EA0044A2AB /* SeeFood2Watch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECF637772DE458EB0044A2AB /* Build configuration list for PBXNativeTarget "SeeFood2Watch Watch App" */;
+			buildPhases = (
+				ECF6374F2DE458EA0044A2AB /* Sources */,
+				ECF637502DE458EA0044A2AB /* Frameworks */,
+				ECF637512DE458EA0044A2AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				ECF637542DE458EA0044A2AB /* SeeFood2Watch Watch App */,
+			);
+			name = "SeeFood2Watch Watch App";
+			packageProductDependencies = (
+			);
+			productName = "SeeFood2Watch Watch App";
+			productReference = ECF637532DE458EA0044A2AB /* SeeFood2Watch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ECF637612DE458EB0044A2AB /* SeeFood2Watch Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECF6377B2DE458EB0044A2AB /* Build configuration list for PBXNativeTarget "SeeFood2Watch Watch AppTests" */;
+			buildPhases = (
+				ECF6375E2DE458EB0044A2AB /* Sources */,
+				ECF6375F2DE458EB0044A2AB /* Frameworks */,
+				ECF637602DE458EB0044A2AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECF637642DE458EB0044A2AB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				ECF637652DE458EB0044A2AB /* SeeFood2Watch Watch AppTests */,
+			);
+			name = "SeeFood2Watch Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "SeeFood2Watch Watch AppTests";
+			productReference = ECF637622DE458EB0044A2AB /* SeeFood2Watch Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ECF6376B2DE458EB0044A2AB /* SeeFood2Watch Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECF6377E2DE458EB0044A2AB /* Build configuration list for PBXNativeTarget "SeeFood2Watch Watch AppUITests" */;
+			buildPhases = (
+				ECF637682DE458EB0044A2AB /* Sources */,
+				ECF637692DE458EB0044A2AB /* Frameworks */,
+				ECF6376A2DE458EB0044A2AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECF6376E2DE458EB0044A2AB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				ECF6376F2DE458EB0044A2AB /* SeeFood2Watch Watch AppUITests */,
+			);
+			name = "SeeFood2Watch Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "SeeFood2Watch Watch AppUITests";
+			productReference = ECF6376C2DE458EB0044A2AB /* SeeFood2Watch Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -298,6 +446,17 @@
 					EC2EFDBF2DD7393E00108E35 = {
 						CreatedOnToolsVersion = 16.2;
 					};
+					ECF637522DE458EA0044A2AB = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					ECF637612DE458EB0044A2AB = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = ECF637522DE458EA0044A2AB;
+					};
+					ECF6376B2DE458EB0044A2AB = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = ECF637522DE458EA0044A2AB;
+					};
 				};
 			};
 			buildConfigurationList = EC2E52272DCB28DA00780C58 /* Build configuration list for PBXProject "SeeFood2" */;
@@ -318,6 +477,9 @@
 				EC2E523B2DCB28DB00780C58 /* SeeFood2Tests */,
 				EC2E52452DCB28DB00780C58 /* SeeFood2UITests */,
 				EC2EFDBF2DD7393E00108E35 /* WidgetSeefood2Extension */,
+				ECF637522DE458EA0044A2AB /* SeeFood2Watch Watch App */,
+				ECF637612DE458EB0044A2AB /* SeeFood2Watch Watch AppTests */,
+				ECF6376B2DE458EB0044A2AB /* SeeFood2Watch Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -345,6 +507,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EC2EFDBE2DD7393E00108E35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF637512DE458EA0044A2AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF637602DE458EB0044A2AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF6376A2DE458EB0044A2AB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -382,6 +565,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECF6374F2DE458EA0044A2AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF6375E2DE458EB0044A2AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF637682DE458EB0044A2AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -399,6 +603,21 @@
 			isa = PBXTargetDependency;
 			target = EC2EFDBF2DD7393E00108E35 /* WidgetSeefood2Extension */;
 			targetProxy = EC2EFDD42DD7393F00108E35 /* PBXContainerItemProxy */;
+		};
+		ECF637642DE458EB0044A2AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECF637522DE458EA0044A2AB /* SeeFood2Watch Watch App */;
+			targetProxy = ECF637632DE458EB0044A2AB /* PBXContainerItemProxy */;
+		};
+		ECF6376E2DE458EB0044A2AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECF637522DE458EA0044A2AB /* SeeFood2Watch Watch App */;
+			targetProxy = ECF6376D2DE458EB0044A2AB /* PBXContainerItemProxy */;
+		};
+		ECF637752DE458EB0044A2AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECF637522DE458EA0044A2AB /* SeeFood2Watch Watch App */;
+			targetProxy = ECF637742DE458EB0044A2AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -706,6 +925,144 @@
 			};
 			name = Release;
 		};
+		ECF637782DE458EB0044A2AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SeeFood2Watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 9JVSZ45Z2V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SeeFood2Watch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.core-challenge.SeeFood2";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.core-challenge.SeeFood2.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		ECF637792DE458EB0044A2AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SeeFood2Watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 9JVSZ45Z2V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SeeFood2Watch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.core-challenge.SeeFood2";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.core-challenge.SeeFood2.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+		ECF6377C2DE458EB0044A2AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JVSZ45Z2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seefood2.SeeFood2Watch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeeFood2Watch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SeeFood2Watch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		ECF6377D2DE458EB0044A2AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JVSZ45Z2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seefood2.SeeFood2Watch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeeFood2Watch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SeeFood2Watch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+		ECF6377F2DE458EB0044A2AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JVSZ45Z2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seefood2.SeeFood2Watch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "SeeFood2Watch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		ECF637802DE458EB0044A2AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JVSZ45Z2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seefood2.SeeFood2Watch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "SeeFood2Watch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -750,6 +1107,33 @@
 			buildConfigurations = (
 				EC2EFDD82DD7393F00108E35 /* Debug */,
 				EC2EFDD92DD7393F00108E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECF637772DE458EB0044A2AB /* Build configuration list for PBXNativeTarget "SeeFood2Watch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECF637782DE458EB0044A2AB /* Debug */,
+				ECF637792DE458EB0044A2AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECF6377B2DE458EB0044A2AB /* Build configuration list for PBXNativeTarget "SeeFood2Watch Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECF6377C2DE458EB0044A2AB /* Debug */,
+				ECF6377D2DE458EB0044A2AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECF6377E2DE458EB0044A2AB /* Build configuration list for PBXNativeTarget "SeeFood2Watch Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECF6377F2DE458EB0044A2AB /* Debug */,
+				ECF637802DE458EB0044A2AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
